@@ -1,0 +1,75 @@
+<div class="container-fluid">
+<div class="row justify-content-between">
+<nav class="navbar fixed-top">
+  
+  <ul class="nav nav-pills nav-fill">
+
+    <div class="col-md-auto m-sm-0 p-sm-0">
+      <li class="navbar-brand brand-name">  
+        <a routerLink=""> <img src="/assets/img/LogoOPL.png" style="width:30px;height:30px;"> </a>
+      </li>
+    </div>
+
+    <div class="col-sm-auto">
+      <li class="nav-item dropdown active">
+        <a routerLink="music" class="nav-link text-white" id="music" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Music</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+<!--           <li *ngFor="let sidebarmenu of sidebarmenus" class="active">
+            <a routerLink="/trumpet" class="dropdown-item" menu="music">{{sidebarmenu.menu}}</a>
+          </li> -->
+          <li *ngFor="let sidebarmenu of sidebarmenus" class="active" menuString="/music">
+            <a routerLink='/{{sidebarmenu.name | lowercase}}' aria-expanded="false" menuString="/music">{{sidebarmenu.name}}</a>
+          </li>
+        </div>
+      </li>
+    </div>
+
+
+    <div class="col-sm-auto">
+      <li class="nav-item dropdown active">
+        <a routerLink="comsci" class="nav-link text-white" href="#" id="compsci" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Computer Science</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Python</a>
+          <a class="dropdown-item" href="#">HTML</a>
+          <a class="dropdown-item" href="#">Game Maker Studio 2</a>
+        </div>
+      </li>
+    </div>
+
+    <div class="col-sm-auto">
+      <li class="nav-item dropdown active">
+        <a routerLink="science" class="nav-link text-white" href="#" id="science" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Science</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </div>
+
+    <div class="col-sm-auto">
+      <li class="nav-item dropdown active">
+        <a routerLink="math" class="nav-link text-white" href="#" id="math"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mathematics</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </div>
+
+    
+    <div class="col">
+    <li>
+      <form class="form-inline ml-xl-5">
+          <input class="form-control mx-sm-0" type="search" placeholder="Search" aria-label="Search">
+        </form>
+    </li>
+    </div>
+
+  </ul>
+
+
+</nav>
+</div>
+</div>

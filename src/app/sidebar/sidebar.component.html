@@ -1,0 +1,37 @@
+<div class="containter-fluid">
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+
+        <ul class="list-unstyled components">
+            <li *ngFor="let sidebarlink of sidebarlinks" class="active">
+
+                <a href=#{{sidebarlink.name}} data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{sidebarlink.name}}</a>
+
+                <ul id={{sidebarlink.name}} class="collapse list-unstyled">
+
+                    <li *ngFor="let subsidebarlink of subsidebarlinks" class="active">
+
+                        <a href="#">{{subsidebarlink.subname}}</a>
+
+                    </li>   
+
+                    <li>
+                        <a href="#">Home 2</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Home 3</a>
+                    </li>
+
+                </ul>
+            </li>
+
+
+
+        </ul>
+    </nav>
+
+
+</div>
+</div>
