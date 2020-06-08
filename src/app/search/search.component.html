@@ -1,0 +1,9 @@
+<input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+<ul class="search-result">
+  <li *ngFor="let articledata of articledatas$ | async" >
+    <a routerLink="/{{articledata.videoURL}}" href="{{articledata.videoURL}}">
+      {{artciledata.title}}
+    </a>
+  </li>
+</ul>

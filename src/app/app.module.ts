@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule }    from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,8 @@ import { ScienceComponent } from './science/science.component';
 import { MathComponent } from './math/math.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TrumpetComponent } from './musiccomponents/trumpet/trumpet.component';
+import { ArticleComponent } from './article/article.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -24,11 +27,14 @@ import { TrumpetComponent } from './musiccomponents/trumpet/trumpet.component';
     ScienceComponent,
     MathComponent,
     SidebarComponent,
-    TrumpetComponent
+    TrumpetComponent,
+    ArticleComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

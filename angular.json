@@ -137,5 +137,8 @@
       }
     }
   },
-  "defaultProject": "OPL"
+  "defaultProject": "OPL",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -4,7 +4,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Update the project
 ng update
+
+# add and commit files
 git add *
+
+#create service
+ng generate service
+
+
 
 ## Development server
 
