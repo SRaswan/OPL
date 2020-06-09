@@ -15,6 +15,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { TrumpetComponent } from './musiccomponents/trumpet/trumpet.component';
 import { ArticleComponent } from './article/article.component';
 import { SearchComponent } from './search/search.component';
+import { StarthereComponent } from './starthere/starthere.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SearchComponent } from './search/search.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
+    StarthereComponent,
     MusicComponent,
     ComsciComponent,
     ScienceComponent,

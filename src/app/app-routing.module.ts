@@ -10,10 +10,11 @@ import { TrumpetComponent } from './musiccomponents/trumpet/trumpet.component';
 
 const routes: Routes = [
 	{ path: '', pathMatch:'full', component: HomeComponent },
+	{ path: 'starthere', component: StarthereComponent },
 	{ path: 'music', component: MusicComponent },
 	{ path: 'comsci', component: ComsciComponent },
 	{ path: 'science', component: ScienceComponent },
-	{ path: 'math', component: MathComponent }, 
+	{ path: 'math', component: MathComponent },
 	{ path: 'trumpet', component: TrumpetComponent }
 
 	];
