@@ -7,6 +7,8 @@ import { ComsciComponent } from './comsci/comsci.component';
 import { ScienceComponent } from './science/science.component';
 import { MathComponent } from './math/math.component';
 import { TrumpetComponent } from './musiccomponents/trumpet/trumpet.component';
+import { StarthereComponent } from './starthere/starthere.component';
+
 
 const routes: Routes = [
 	{ path: '', pathMatch:'full', component: HomeComponent },
