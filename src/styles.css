@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-html * {
+
+/* html * {
 	font-family: Georgia, serif !important;
 }
 
@@ -10,9 +11,7 @@ html * {
 }
 
 body {
-    margin: 30px 40px;
     font-size: 1em;
-    padding-top: 40px;
 }
 
 
@@ -66,8 +65,4 @@ a, a:hover, a:focus {
     color: inherit;
     text-decoration: none;
     transition: all 0.3s;
-}
-
-
-
-
+} */

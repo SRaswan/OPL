@@ -11,7 +11,9 @@ import { StarthereComponent } from './starthere/starthere.component';
 
 
 const routes: Routes = [
-	{ path: '', pathMatch:'full', component: HomeComponent },
+	// { path: '', pathMatch:'full', component: RouterModule },
+	{ path: '', redirectTo:"/starthere", pathMatch:'full' },
+	{ path: 'home', component: HomeComponent },
 	{ path: 'starthere', component: StarthereComponent },
 	{ path: 'music', component: MusicComponent },
 	{ path: 'comsci', component: ComsciComponent },

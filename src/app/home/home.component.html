@@ -1,170 +1,53 @@
-<!-- div class="containter-fluid">
-	<div class="row justify-content-md-center">
-		<h1>Online Peer Learning</h1>
+<main role="main">
+	<div class="container home">
+		<!-- Example row of columns -->
+		<div class="row">
+			<div class="col-md-4">
+				<h2>Top Categories:</h2>
+				<div *ngFor="let category of categories">
+						<h3>{{category.name}}</h3>
+						<div *ngFor="let sub_category of category.subCategories; let i = index;">
+							<div *ngIf="i < 3">
+								<p><a href="#">{{sub_category.name}}</a></p>
+							</div>
+							<div *ngIf="i == 3">
+								<p><a class="btn btn-secondary btn-outline-secondary" href="#" role="button">More &raquo;</a></p>
+							</div>
+						</div>
+				</div>
+				<p><a class="btn btn-secondary" href="#" role="button">All Categories&raquo;</a></p>
+			</div>
+			<div class="col-md-4">
+				<h2>All Categories:</h2>
+				<div *ngFor="let category of categories">
+						<h3>
+						<a href=#{{category.name}}>{{category.name}}</a>
+						</h3>
+						<div *ngFor="let sub_category of category.subCategories; let i = index;">
+								<p><a href="#">{{sub_category.name}}</a></p>
+						</div>
+				</div>
+				<p><a class="btn btn-secondary" href="#" role="button">More &raquo;</a></p>
+			</div>
+			<div class="col-md-4">
+				<h2>Top Lessons of the week: </h2>
+				<p>Top Lessons of the week: <p>
+				<p>Leaning to play trumbone<p>
+				<p>Making Calculus Simple<p>
+				<p>C++ Basics<p>
+				<p><a class="btn btn-secondary" href="#" role="button">More Lessons &raquo;</a></p>
+			</div>
+		</div>
 	</div>
-</div -->
+</main>
 
-
-<header class="masthead">
-		<div class="container h-100">
-				<div class="row h-100 align-items-center justify-content-center text-center">
-						<div class="col-lg-10 align-self-end">
-								<h1 class="text-uppercase text-white font-weight-bold">OPL Online Peer Learning</h1>
-								<hr class="divider my-4" />
-						</div>
-						<div class="col-lg-8 align-self-baseline">
-								<p class="text-white-75 font-weight-light mb-5">Online Hub for collborative Peer Learning</p>
-								<p>OPL is a collaborative tool to share with your peers your knowledge and learnings.
-								Knowledge grows by sharing. Learning new skill and building knwoledge about any subject has it's learning curve</p>
-								<p>Studies shows that if a knowldge about a subject is shared by your peer, the learnign curve flattens.</p>
-								<p>Particiapte in leanring new skills and sharing with others the skills you already have learnt.</p>
-								<p>OPL is organized in learning categories > sub-categories > lessons. You can share your code, video or other artifacts with your peers.
-								</p>
-								<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Let's Get Started &raquo;</a>
-
-								<a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
-						</div>
-				</div>
-		</div>
-</header>
-
-<!-- About-->
-<section class="page-section bg-primary" id="about">
-		<div class="container">
-				<div class="row justify-content-center">
-						<div class="col-lg-8 text-center">
-								<h2 class="text-white mt-0">We've got what you need!</h2>
-								<hr class="divider light my-4" />
-								<p class="text-white-50 mb-4">Start Bootstrap has everything you need to get your new website up and running in no time! Choose one of our open source, free to download, and easy to use themes! No strings attached!</p>
-								<a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
-						</div>
-				</div>
-		</div>
-</section>
-<!-- Services-->
-<section class="page-section" id="services">
-		<div class="container">
-				<h2 class="text-center mt-0">At Your Service</h2>
-				<hr class="divider my-4" />
-				<div class="row">
-						<div class="col-lg-3 col-md-6 text-center">
-								<div class="mt-5">
-										<i class="fas fa-4x fa-gem text-primary mb-4"></i>
-										<h3 class="h4 mb-2">Sturdy Themes</h3>
-										<p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
-								</div>
-						</div>
-						<div class="col-lg-3 col-md-6 text-center">
-								<div class="mt-5">
-										<i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-										<h3 class="h4 mb-2">Up to Date</h3>
-										<p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
-								</div>
-						</div>
-						<div class="col-lg-3 col-md-6 text-center">
-								<div class="mt-5">
-										<i class="fas fa-4x fa-globe text-primary mb-4"></i>
-										<h3 class="h4 mb-2">Ready to Publish</h3>
-										<p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
-								</div>
-						</div>
-						<div class="col-lg-3 col-md-6 text-center">
-								<div class="mt-5">
-										<i class="fas fa-4x fa-heart text-primary mb-4"></i>
-										<h3 class="h4 mb-2">Made with Love</h3>
-										<p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
-								</div>
-						</div>
-				</div>
-		</div>
-</section>
-<!-- Portfolio-->
-<div id="portfolio">
-		<div class="container-fluid p-0">
-				<div class="row no-gutters">
-						<div class="col-lg-4 col-sm-6">
-								<a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg"
-										><img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="" />
-										<div class="portfolio-box-caption">
-												<div class="project-category text-white-50">Category</div>
-												<div class="project-name">Project Name</div>
-										</div></a
-								>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-								<a class="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg"
-										><img class="img-fluid" src="assets/img/portfolio/thumbnails/2.jpg" alt="" />
-										<div class="portfolio-box-caption">
-												<div class="project-category text-white-50">Category</div>
-												<div class="project-name">Project Name</div>
-										</div></a
-								>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-								<a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg"
-										><img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="" />
-										<div class="portfolio-box-caption">
-												<div class="project-category text-white-50">Category</div>
-												<div class="project-name">Project Name</div>
-										</div></a
-								>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-								<a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg"
-										><img class="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="" />
-										<div class="portfolio-box-caption">
-												<div class="project-category text-white-50">Category</div>
-												<div class="project-name">Project Name</div>
-										</div></a
-								>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-								<a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg"
-										><img class="img-fluid" src="assets/img/portfolio/thumbnails/5.jpg" alt="" />
-										<div class="portfolio-box-caption">
-												<div class="project-category text-white-50">Category</div>
-												<div class="project-name">Project Name</div>
-										</div></a
-								>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-								<a class="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg"
-										><img class="img-fluid" src="assets/img/portfolio/thumbnails/6.jpg" alt="" />
-										<div class="portfolio-box-caption p-3">
-												<div class="project-category text-white-50">Category</div>
-												<div class="project-name">Project Name</div>
-										</div></a
-								>
-						</div>
-				</div>
-		</div>
-</div>
-<!-- Call to action-->
-<section class="page-section bg-dark text-white">
-		<div class="container text-center">
-				<h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-				<a class="btn btn-light btn-xl" href="https://startbootstrap.com/themes/creative/">Download Now!</a>
-		</div>
-</section>
-<!-- Contact-->
-<section class="page-section" id="contact">
-		<div class="container">
-				<div class="row justify-content-center">
-						<div class="col-lg-8 text-center">
-								<h2 class="mt-0">Let's Get In Touch!</h2>
-								<hr class="divider my-4" />
-								<p class="text-muted mb-5">Ready to start your next project with us? Give us a call or send us an email and we will get back to you as soon as possible!</p>
-						</div>
-				</div>
-				<div class="row">
-						<div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
-								<i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-								<div>+1 (555) 123-4567</div>
-						</div>
-						<div class="col-lg-4 mr-auto text-center">
-								<i class="fas fa-envelope fa-3x mb-3 text-muted"></i
-								><!-- Make sure to change the email address in BOTH the anchor text and the link target below!--><a class="d-block" href="mailto:contact@yourwebsite.com">contact@yourwebsite.com</a>
-						</div>
-				</div>
-		</div>
-</section>
+<!-- <ul class="list-unstyled components">
+		<li *ngFor="let category of categories" class="active">
+				<a href=#{{category.name}} data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{category.id}} - {{category.name}}</a>
+				<ul id={{category.name}} class="collapse list-unstyled">
+						<li *ngFor="let sub_category of category.subCategories" class="active">
+								<a href="#">{{sub_category.name}}</a>
+						</li>
+				</ul>
+		</li>
+</ul> -->

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Category, SubCategory } from '../category';
+import { SidebarlinkService } from '../sidebarlink.service';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  categories: Category[];
 
-  constructor() { }
+  constructor(private sidebarlinkService: SidebarlinkService) { }
 
   ngOnInit() {
+    this.getCategories();
+  }
+
+  getCategories(): void {
+    this.sidebarlinkService.getCategories()
+              .subscribe(categories => this.categories = categories);
   }
 
 }
