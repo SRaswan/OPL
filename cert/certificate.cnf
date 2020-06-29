@@ -1,0 +1,18 @@
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+x509_extensions = v3_req
+distinguished_name = dn
+[dn]
+C = US
+ST = CA
+L = Irvine
+O = OI2AI2OI
+OU = OPL
+emailAddress = oi2ai2oi@gmail.com
+CN = localhost
+[v3_req]
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = localhost

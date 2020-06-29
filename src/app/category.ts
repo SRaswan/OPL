@@ -11,15 +11,15 @@ export class SubCategory {
 export class Category {
 	id: number;
 	name: string;
-  subCategories: SubCategory[];
+  sub_categories: SubCategory[];
 
 	constructor(id:number, name:string) {
 		this.id = id;
     this.name = name;
-		this.subCategories = []
+		this.sub_categories = []
 	}
 
 	addSubCategory(id:number, name:string) {
-		this.subCategories.push(new SubCategory(id, name));
+		this.sub_categories.push(new SubCategory(id, name));
 	}
 }

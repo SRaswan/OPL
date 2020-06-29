@@ -3,11 +3,33 @@ import { SidebarLink } from './sidebarlink';
 import { SidebarMenu } from './sidebarmenu';
 import { Category, SubCategory } from './category';
 import { Observable, of } from 'rxjs';
+import { MessageService } from './message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
+import { environment } from '../environments/environment';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class SidebarlinkService {
+  private categoryUrl = environment.base_api_server+'/opl/dynamic/categories';  // URL to web api
+
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService) { }
+
+  public getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.categoryUrl)
+      .pipe(
+        map(resp => resp.length>0 ? resp : null)
+        ,tap(resp => this.log('fetched all categories.'))
+        ,catchError(this.handleError<Category[]>('get Category caught error'))
+      );
+  }
 
 	public getLinks(menu: String): SidebarLink[] {
 
@@ -54,7 +76,7 @@ export class SidebarlinkService {
 	}
 
   /// Observable Service
-  public getCategories(): Observable<Category[]> {
+  public getCategoriesDummy(): Observable<Category[]> {
     let records: Array<Array<string|number>> = [
               [1,"Computer Science",1,"C++",1],
               [1,"Computer Science",2,"Java",1],
@@ -62,6 +84,7 @@ export class SidebarlinkService {
               [1,"Computer Science",4,"Node",1],
               [1,"Computer Science",5,"Angular",1],
               [2,"Science",6,"Biology",2],
+              [2,"Science",7,"Physics",2],
               [2,"Science",8,"Chemistry",2],
               [2,"Science",9,"Environmental Science",2],
               [3,"Math",10,"Algebra",3],
@@ -82,15 +105,34 @@ export class SidebarlinkService {
         }
         category.addSubCategory(+records[idx][2],records[idx][3].toString());
     }
-
     return of(categories);
 	}
 
-
-	constructor() {
-
-
+  /** Log a HeroService message with the MessageService */
+  private log(message: string) {
+    this.messageService.add(`SidebarlinkService: ${message}`);
   }
+
+  /**
+ * Handle Http operation that failed.
+ * Let the app continue.
+ * @param operation - name of the operation that failed
+ * @param result - optional value to return as the observable result
+ */
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
 
 
 }
