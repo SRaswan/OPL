@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
-
+import { YouTubePlayerModule } from '@angular/youtube-player';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
@@ -37,8 +38,13 @@ import { StarthereComponent } from './starthere/starthere.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    YouTubePlayerModule
+  ],
+  exports: [
+    ArticleComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// export class VideoModule {}

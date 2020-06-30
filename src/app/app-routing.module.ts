@@ -8,6 +8,7 @@ import { ScienceComponent } from './science/science.component';
 import { MathComponent } from './math/math.component';
 import { TrumpetComponent } from './musiccomponents/trumpet/trumpet.component';
 import { StarthereComponent } from './starthere/starthere.component';
+import { ArticleComponent } from './article/article.component';
 
 
 const routes: Routes = [
@@ -19,8 +20,8 @@ const routes: Routes = [
 	{ path: 'comsci', component: ComsciComponent },
 	{ path: 'science', component: ScienceComponent },
 	{ path: 'math', component: MathComponent },
-	{ path: 'trumpet', component: TrumpetComponent }
-
+	{ path: 'trumpet', component: TrumpetComponent },
+	{ path: 'article', component: ArticleComponent }
 	];
 
 @NgModule({

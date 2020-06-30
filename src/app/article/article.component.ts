@@ -25,6 +25,10 @@ export class ArticleComponent implements OnInit {
 
   	ngOnInit() {
   		this.articledata = this.articleService.getData(this.menu);
+      
+      const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(tag);
   	}
 
 }
