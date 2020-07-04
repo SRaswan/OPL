@@ -1,28 +1,41 @@
 
-<div class="home row justify-content-md-center">
-	<div class="col-md-auto">
-		<h1>{{articledata.title}}</h1>
+<div class="card mb-3">
+	<div class="home row">
+		<div class="col m-2">
+			<h2>{{articledata.title}}</h2>
+		</div>
+	</div>
+	<div class="row m-2">
+	    <div class="col-6">
+				<div class="ml-30 embed-responsive embed-responsive-16by9">
+					<youtube-player
+					  videoId={{youtubevideoid}}
+					  suggestedQuality="highres"
+						*ngIf="youtubevideoid"
+						(ready)="onReady($event)"
+            (stateChange)="onStateChange($event)"
+					 >
+					</youtube-player>
+				</div>
+			</div>
+			<div class="col-6">
+	        <p>{{articledata.about}} </p>
+	        <a href="{{articledata.videoURL}}">Youtube Link:{{articledata.videoURL}}</a>
+					<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+	    </div>
+			<!-- <iframe width="420" height="345" src="https://www.youtube.com/embed/kOHB85vDuow" webkitallowfullscreen mozallowfullscreen
+			allowfullscreen> </iframe> -->
 	</div>
 </div>
-
-<div class="row justify-content-center">
-    <div class="col-10">
-        <p>Youtube: {{articledata.about}} </p>
-        <a href="{{articledata.videoURL}}"> Youtube Link:{{articledata.videoURL}}</a>
-    </div>
-    <div class="col-10">
-      <iframe width='420' height='315' ng-src="{{articledata.videoURL}}" webkitallowfullscreen mozallowfullscreen
-      allowfullscreen> </iframe>
-
-			<iframe width="420" height="345" src="https://www.youtube.com/embed/kOHB85vDuow" webkitallowfullscreen mozallowfullscreen
-      allowfullscreen> </iframe>
-    </div>
-		<youtube-player
-		  videoId="dQw4w9WgXcQ"
-		  suggestedQuality="highres"
-		  height="600"
-		  width="1080"
-		  startSeconds="43"
-		  endSeconds="60">
-		</youtube-player>
+<div class="card mb-3">
+	<div class="row">
+		<div class="col m-2">
+			<h4>Reference</h4>
+			<ul>
+				<li><a href="https://efficientuser.com/2020/03/09/angular-9-youtuber-player-component/">Youtube Player Component</a></li>
+				<li><a href="https://golb.hplar.ch/2020/04/google-maps-youtube.html">YouTube Player and Google Maps Angular component</a></li>
+			</ul>
+      <p class="card-text"><a href="https://efficientuser.com/2020/03/09/angular-9-youtuber-player-component/">Youtube Player Component</a></p>
+		</div>
+	</div>
 </div>

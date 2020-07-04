@@ -2,22 +2,28 @@
 	<div class="container home">
 		<!-- Example row of columns -->
 		<div class="row ml-4">
-			<div class="col-md-4">
-				<h3>Top Categories:</h3>
-				<div class="border rounded pl-2 pt-2" *ngFor="let category of categories">
-						<h4>{{category.name}}</h4>
-						<div class="pl-4" *ngFor="let sub_category of category.sub_categories; let i = index;">
-							<div *ngIf="i < 3">
-								<p><a href="#">{{sub_category.name}}</a></p>
-							</div>
-							<div *ngIf="i == 3">
-								<p><a class="btn btn-secondary btn-outline-secondary" href="#" role="button">More &raquo;</a></p>
-							</div>
-						</div>
-				</div>
-				<p><a class="btn btn-secondary" href="#" role="button">All Categories&raquo;</a></p>
-			</div>
 			<div class="col-md-4 ">
+				<div class="card mb-4 box-shadow">
+	        <div class="card-header">
+	          <h4 class="my-0 font-weight-normal">Top Categories</h4>
+	        </div>
+	        <div class="card-body">
+						<div class="pl-2 pt-2" *ngFor="let category of categories">
+								<h4>{{category.name}}</h4>
+								<div class="pl-4" *ngFor="let sub_category of category.sub_categories; let i = index;">
+									<div *ngIf="i < 3">
+										<p><a href="#">{{sub_category.name}}</a></p>
+									</div>
+									<div *ngIf="i == 3">
+										<p><a class="btn btn-secondary btn-outline-secondary" href="#" role="button">More &raquo;</a></p>
+									</div>
+								</div>
+						</div>
+	          <button type="button" class="btn btn-lg btn-block btn-secondary">All Categories&raquo;</button>
+	        </div>
+	      </div>
+			</div>
+			<!-- <div class="col-md-4 ">
 				<h3>All Categories:</h3>
 				<div class="border rounded overflow-hidden pl-2 pt-2" *ngFor="let category of categories">
 						<h4>
@@ -28,14 +34,14 @@
 						</div>
 				</div>
 				<p><a class="btn btn-secondary" href="#" role="button">More &raquo;</a></p>
-			</div>
-			<div class="border rounded overflow-hidden col-md-4">
+			</div> -->
+			<div class="col-md-8 border rounded overflow-hidden">
 				<h3>Top Lessons of the week: </h3>
 				<p>Top Lessons of the week: <p>
 				<p>Leaning to play trumbone<p>
 				<p>Making Calculus Simple<p>
 				<p>C++ Basics<p>
-				<p><a class="btn btn-secondary" href="#" role="button">More Lessons &raquo;</a></p>
+				<p><a class="btn btn-secondary" href="/article" role="button">More Lessons &raquo;</a></p>
 			</div>
 		</div>
 	</div>

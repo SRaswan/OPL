@@ -40,9 +40,9 @@ import { StarthereComponent } from './starthere/starthere.component';
     HttpClientModule,
     YouTubePlayerModule
   ],
-  exports: [
-    ArticleComponent
-  ],
+  // exports: [
+  //   ArticleComponent
+  // ],
   providers: [],
   bootstrap: [AppComponent]
 })
