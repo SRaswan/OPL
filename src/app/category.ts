@@ -11,7 +11,7 @@ export class SubCategory {
 export class Category {
 	id: number;
 	name: string;
-  sub_categories: SubCategory[];
+	sub_categories: SubCategory[];
 
 	constructor(id:number, name:string) {
 		this.id = id;
@@ -21,5 +21,21 @@ export class Category {
 
 	addSubCategory(id:number, name:string) {
 		this.sub_categories.push(new SubCategory(id, name));
+	}
+}
+
+export class Lesson {
+	id: number;
+	name: string;
+	description: string;
+	youtube_url: string;
+	git_url: string;
+	published_timestamp: number;
+	author_name: string;
+	categories: Category[];
+	sub_categories: SubCategory[];
+
+	public get_published_dttm(): string {
+		return new Date(this.published_timestamp * 1000).toLocaleString();
 	}
 }

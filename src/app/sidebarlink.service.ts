@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SidebarLink } from './sidebarlink';
 import { SidebarMenu } from './sidebarmenu';
-import { Category, SubCategory } from './category';
+import { Category, SubCategory, Lesson } from './category';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -17,6 +17,7 @@ const httpOptions = {
 })
 export class SidebarlinkService {
   private categoryUrl = environment.base_api_server+'/opl/dynamic/categories';  // URL to web api
+  private lessonUrl = environment.base_api_server+'/opl/dynamic/lessons';  // URL to web api
 
   constructor(
     private http: HttpClient,
@@ -30,6 +31,16 @@ export class SidebarlinkService {
         ,catchError(this.handleError<Category[]>('get Category caught error'))
       );
   }
+
+  public getTopLessons(): Observable<Lesson[]> {
+    return this.http.get<Lesson[]>(this.lessonUrl)
+      .pipe(
+        map(resp => resp.length>0 ? resp : null)
+        ,tap(resp => this.log('fetched top lessons.'))
+        ,catchError(this.handleError<Lesson[]>('get Top Lessons caught error'))
+      );
+  }
+
 
 	public getLinks(menu: String): SidebarLink[] {
 

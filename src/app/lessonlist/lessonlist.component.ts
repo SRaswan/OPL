@@ -6,11 +6,11 @@ import { SidebarlinkService } from '../sidebarlink.service';
 import { YouTubePlayer } from '@angular/youtube-player';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-lessonlist',
+  templateUrl: './lessonlist.component.html',
+  styleUrls: ['./lessonlist.component.css']
 })
-export class HomeComponent implements OnInit {
+export class LessonlistComponent implements OnInit {
   categories: Category[];
   top_lessons: Lesson[];
 

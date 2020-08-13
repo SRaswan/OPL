@@ -17,6 +17,7 @@ import { TrumpetComponent } from './musiccomponents/trumpet/trumpet.component';
 import { ArticleComponent } from './article/article.component';
 import { SearchComponent } from './search/search.component';
 import { StarthereComponent } from './starthere/starthere.component';
+import { LessonlistComponent } from './lessonlist/lessonlist.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { StarthereComponent } from './starthere/starthere.component';
     SidebarComponent,
     TrumpetComponent,
     ArticleComponent,
-    SearchComponent
+    SearchComponent,
+    LessonlistComponent
   ],
   imports: [
     BrowserModule,
