@@ -50,4 +50,6 @@ export class LessonlistComponent implements OnInit {
         event.target.playVideo();
      }
   }
+  
+
 }
