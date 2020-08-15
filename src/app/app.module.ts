@@ -18,6 +18,7 @@ import { ArticleComponent } from './article/article.component';
 import { SearchComponent } from './search/search.component';
 import { StarthereComponent } from './starthere/starthere.component';
 import { LessonlistComponent } from './lessonlist/lessonlist.component';
+import { LessonsearchComponent } from './lessonsearch/lessonsearch.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LessonlistComponent } from './lessonlist/lessonlist.component';
     TrumpetComponent,
     ArticleComponent,
     SearchComponent,
-    LessonlistComponent
+    LessonlistComponent,
+    LessonsearchComponent
   ],
   imports: [
     BrowserModule,

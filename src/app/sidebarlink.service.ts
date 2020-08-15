@@ -18,6 +18,7 @@ const httpOptions = {
 export class SidebarlinkService {
   private categoryUrl = environment.base_api_server+'/opl/dynamic/categories';  // URL to web api
   private lessonUrl = environment.base_api_server+'/opl/dynamic/lessons';  // URL to web api
+  private lessonsearchUrl = environment.base_api_server+'/opl/dynamic/searchlessons?query=';  // URL to web api
 
   constructor(
     private http: HttpClient,
@@ -41,6 +42,14 @@ export class SidebarlinkService {
       );
   }
 
+  public searchLessons(term: string = ""): Observable<Lesson[]> {
+    return this.http.get<Lesson[]>(this.lessonsearchUrl+encodeURIComponent(term))
+      .pipe(
+        map(resp => resp)
+        ,tap(resp => this.log('fetched lessons matching search keyword.'))
+        ,catchError(this.handleError<Lesson[]>('get Top Lessons caught error'))
+      );
+  }
 
 	public getLinks(menu: String): SidebarLink[] {
 
