@@ -25,6 +25,7 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
   lessons$: Observable<Lesson[]>;
   private searchTerms = new Subject<string>();
   private navigationSubscription;
+  private selectedLesson: Lesson;
 
   constructor(
     private sidebarLinkService: SidebarlinkService,
@@ -61,11 +62,11 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
   ngOnInit(): void{
     this.lessons$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
-      debounceTime(100),
+      debounceTime(500),
       // ignore new term if same as previous term
       distinctUntilChanged(),
       // switch to new search observable each time the term changes
-      switchMap((term: string) => this.sidebarLinkService.searchlessons(term)),
+      switchMap((term: string) => this.sidebarLinkService.searchLessons(term)),
     );
     this.searchByURL();
   }
@@ -77,5 +78,12 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
       if (this.navigationSubscription) {
          this.navigationSubscription.unsubscribe();
       }
+
+      this.sidebarLinkService.selectedLesson = this.selectedLesson;
+
     }
+
+
+
+
 }

@@ -19,6 +19,7 @@ export class SidebarlinkService {
   private categoryUrl = environment.base_api_server+'/opl/dynamic/categories';  // URL to web api
   private lessonUrl = environment.base_api_server+'/opl/dynamic/lessons';  // URL to web api
   private lessonsearchUrl = environment.base_api_server+'/opl/dynamic/searchlessons?query=';  // URL to web api
+  public selectedLesson: Lesson;
 
   constructor(
     private http: HttpClient,

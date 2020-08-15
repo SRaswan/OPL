@@ -34,7 +34,7 @@ export class Lesson {
 	author_name: string;
 	categories: Category[];
 	sub_categories: SubCategory[];
-	published_dttm: new Date(this.published_timestamp * 1000).toLocaleString();
+	//published_dttm: new Date(this.published_timestamp * 1000).toLocaleString();
 
 	// get_published_dttm(): string {
 	// 	return new Date(this.published_timestamp * 1000).toLocaleString();

@@ -10,10 +10,12 @@ import { TrumpetComponent } from './musiccomponents/trumpet/trumpet.component';
 import { StarthereComponent } from './starthere/starthere.component';
 import { ArticleComponent } from './article/article.component';
 import { LessonlistComponent } from './lessonlist/lessonlist.component';
+import { LessonsearchComponent } from './lessonsearch/lessonsearch.component';
 
 const routes: Routes = [
 	// { path: '', pathMatch:'full', component: RouterModule },
 	{ path: '', redirectTo:"/starthere", pathMatch:'full' },
+	{ path: 'search', component: LessonsearchComponent },
 	{ path: 'lessonlist', component: LessonlistComponent },
 	{ path: 'starthere', component: StarthereComponent },
 	{ path: 'music', component: MusicComponent },
@@ -21,7 +23,7 @@ const routes: Routes = [
 	{ path: 'science', component: ScienceComponent },
 	{ path: 'math', component: MathComponent },
 	{ path: 'trumpet', component: TrumpetComponent },
-	{ path: 'article', component: ArticleComponent }
+	{ path: 'article/:id', component: ArticleComponent }
 	];
 
 @NgModule({

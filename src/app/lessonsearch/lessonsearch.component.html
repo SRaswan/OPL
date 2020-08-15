@@ -1,2 +1,54 @@
-<p>lessonsearch works!</p>
-<input class="form-control col-sm-6" placeholder="Search" aria-label="Search" #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+<main role="main">
+	<div class="container home">
+      <div class="row">
+         <div class="col">
+            <br/>
+            <br/>
+            <br/>
+            <p>What do you want to learn today?</p>
+            <input class="form-control col-sm-6" placeholder="Search" aria-label="Search" #searchBox id="search-box" (keyup)="search(searchBox.value)" >
+            <!-- <form class="form-inline ml-auto">
+              <input class="form-control mr-sm-2" type="text" placeholder="" #searchBox aria-label="Search">
+              <button class="btn btn-light my-2 my-sm-0" type="submit" (click)="search(searchBox.value)">Search</button>
+            </form> -->
+                  <!-- <thead class="thead-light">
+                    <tr>
+                      <th>Id</th>
+                      <th>Title</th>
+                    </tr>
+                  </thead> -->
+
+            <div class="card-body">
+               <div class="col border" *ngFor="let lesson of lessons$ | async">
+                  <div class="row justify-content-start">
+                     <div class="col-auto p-2 m-0">
+                        <a [routerLink]="['/article', lesson.id]">
+                        <img src="https://img.youtube.com/vi/{{lesson.youtube_url}}/maxresdefault.jpg" alt="Loading..." width="192" height="108">
+                        </a>
+                     </div>
+                     <div class="col-9 p-2 m-0" >
+                        <div class="row">
+                           <div class="col-auto px-2 py-0 m-0">
+                              <h5><a [routerLink]="['/article', lesson.id]">{{lesson.name}}</a></h5>
+                           </div>
+                           <div class="col-auto px-2 py-0 m-0 text-muted">
+                              <p>{{lesson.author_name}} </p>
+                           </div>
+                           <div class="col-auto px-2 py-0 m-0 text-muted">
+                              <p>{{lesson.published_timestamp}} </p>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-12 px-2 py-0 m-0">
+                              <p>{{lesson.description}} </p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</main>
