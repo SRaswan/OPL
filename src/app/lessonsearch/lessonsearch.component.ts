@@ -62,7 +62,7 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
   ngOnInit(): void{
     this.lessons$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
-      debounceTime(500),
+      debounceTime(200),
       // ignore new term if same as previous term
       distinctUntilChanged(),
       // switch to new search observable each time the term changes
