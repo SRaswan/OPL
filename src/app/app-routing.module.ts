@@ -11,6 +11,7 @@ import { StarthereComponent } from './starthere/starthere.component';
 import { ArticleComponent } from './article/article.component';
 import { LessonlistComponent } from './lessonlist/lessonlist.component';
 import { LessonsearchComponent } from './lessonsearch/lessonsearch.component';
+import { CategorylistComponent } from './categorylist/categorylist.component';
 
 const routes: Routes = [
 	// { path: '', pathMatch:'full', component: RouterModule },
@@ -23,7 +24,8 @@ const routes: Routes = [
 	{ path: 'science', component: ScienceComponent },
 	{ path: 'math', component: MathComponent },
 	{ path: 'trumpet', component: TrumpetComponent },
-	{ path: 'article/:id', component: ArticleComponent }
+	{ path: 'article/:id', component: ArticleComponent },
+	{ path: 'categorylist', component: CategorylistComponent}
 	];
 
 @NgModule({

@@ -19,6 +19,7 @@ import { SearchComponent } from './search/search.component';
 import { StarthereComponent } from './starthere/starthere.component';
 import { LessonlistComponent } from './lessonlist/lessonlist.component';
 import { LessonsearchComponent } from './lessonsearch/lessonsearch.component';
+import { CategorylistComponent } from './categorylist/categorylist.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LessonsearchComponent } from './lessonsearch/lessonsearch.component';
     ArticleComponent,
     SearchComponent,
     LessonlistComponent,
-    LessonsearchComponent
+    LessonsearchComponent,
+    CategorylistComponent
   ],
   imports: [
     BrowserModule,

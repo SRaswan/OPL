@@ -1,0 +1,35 @@
+<br>
+<br>
+<br>
+<main role="main">
+	<div class="container-fluid">
+      <div class="card mb-4 box-shadow">
+
+
+      <div class="card-header justify-content-center text-center">
+
+			<h1>Categories</h1>
+
+      </div>
+      <div class="card-body">
+         <div class="row justify-content-left">
+            <div class="col-auto pb-5" *ngFor="let category of categories; let i = index;">
+                  <div class="col-auto pb-2 m-0">
+                     <h4>{{category.name}}</h4>
+                  </div>
+      				<div class="col-auto" *ngFor="let sub_category of category.sub_categories">
+      					<div>
+      						<p><a href="#">{{sub_category.name}}</a></p>
+      					</div>
+      								<!-- <div *ngIf="i == 3">
+      									<p><a class="btn btn-secondary btn-outline-secondary" href="#" role="button">More &raquo;</a></p>
+      								</div> -->
+      				</div>
+
+   			</div>
+   		</div>
+      </div>
+
+	</div>
+</div>
+</main>
