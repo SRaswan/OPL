@@ -2,9 +2,10 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ArticleData } from '../articleData'
 import { ArticleService } from '../article.service'
 import { YouTubePlayer } from '@angular/youtube-player';
-import { Category, SubCategory, Lesson } from '../category';
+import { Category, SubCategory, Lesson, LessonState } from '../category';
 import { Observable, Subject } from 'rxjs';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, ParamMap, NavigationStart } from '@angular/router';
+import { map, catchError, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-article',
@@ -15,22 +16,24 @@ export class ArticleComponent implements OnInit {
     articledata: ArticleData;
     youtubevideoid: string;
     @ViewChild(YouTubePlayer) youtubePlayer: YouTubePlayer;
-    lesson_observe$: Observable<Lesson>;
+    // lesson_observe$: Observable<Lesson>;
     lesson: Lesson;
-    lesson_id: number;
+    navigationId: string;
+    state$: Observable<object>;
     // obj: Object;
 
-  	private _menu: string = '';
+  	// private _menu: string = '';
 
-  	@Input()
-  		set menu(menuString: string) {
-  			this._menu = menuString;
-  	}
-
-  	get menu(): string { return this._menu; }
+  	// @Input()
+  	// 	set menu(menuString: string) {
+  	// 		this._menu = menuString;
+  	// }
+    //
+  	// get menu(): string { return this._menu; }
 
   	constructor(private articleService: ArticleService,
-                public activatedRoute: ActivatedRoute) { }
+                public activatedRoute: ActivatedRoute,
+                public router: Router) { }
 
   	ngOnInit() {
       // this.lesson$ = this.activatedRoute.paramMap.pipe(() => window.history.state)
@@ -41,26 +44,33 @@ export class ArticleComponent implements OnInit {
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  		this.articledata = this.articleService.getData(this.menu);
+      // this is for testing only
+  		this.articledata = this.articleService.getData("dummy");
       this.youtubevideoid = 'kOHB85vDuow'
 
   	}
 
     getLesson(): void {
-      let obj = this.activatedRoute.paramMap.pipe(() => window.history.state)
+      this.state$ = this.activatedRoute.paramMap
+            .pipe(map(() => window.history.state))
 
-      this.lesson_observe$.subscribe(obj => {if(obj instanceof Lesson)
-                                        {this.lesson = obj; this.lesson_id = obj.id;}
-                                     else {this.lesson_id = obj; this.lesson = null;}} );
+      // this.state$ =  this.router.events.pipe(
+      //                       filter(e => e instanceof NavigationStart),
+      //                       map(() => this.router.getCurrentNavigation().extras.state)
+      //                     );
+      // this.state$.subscribe((json : Object) => this.lesson = <Lesson>json);
 
-      // if (obj.lesson.id != null) {
-      //     this.lesson = Object.assign(new Lesson(), obj)
-      //     this.lesson_id = obj.lesson.id;
-      // } else {
-      //   this.lesson_id = obj.navigationId;
-      //   this.lesson = null;
-      // }
+      // this.lesson = this.state$.lesson
 
+      // this.state$ = this.activatedRoute.paramMap.pipe(map(() => window.history.state));
+      //
+      // routerMapObj.subscribe((params : ParamMap) =>
+      //                                   { this.lesson = JSON. parse(params.get('lesson'));
+      //                                     this.navigationId = params.get('navigationId');}
+      //                                   );
+
+      // this.lesson = routerMapObj.lesson;
+      // this.navigationId = routerMapObj.navigationId;
     }
 
     // openInfoWindow(markerElement: MapMarker, marker: MarkerObject) {

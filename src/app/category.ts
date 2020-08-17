@@ -24,7 +24,7 @@ export class Category {
 	}
 }
 
-export class Lesson {
+export interface Lesson {
 	id: number;
 	name: string;
 	description: string;
@@ -39,4 +39,9 @@ export class Lesson {
 	// get_published_dttm(): string {
 	// 	return new Date(this.published_timestamp * 1000).toLocaleString();
 	// }
+}
+
+export interface LessonState {
+	lesson: Lesson
+	navigationId: string
 }
