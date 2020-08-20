@@ -43,6 +43,18 @@ export class SidebarlinkService {
       );
   }
 
+  public getLessons(category_id: string, sub_category_id: string): Observable<Lesson[]> {
+     // return this.http.get<Lesson[]>(this.lessonUrl+"?category="+category_id+"&sub_category="+sub_category_id);
+     let lessonsURL:string = this.lessonUrl+"?category="+category_id+"&sub_category="+sub_category_id
+     return this.http.get<Lesson[]>(lessonsURL)
+      .pipe(
+         map(resp => resp.length>0 ? resp : null)
+         ,tap(resp => this.log("fetched lessons of the category="+category_id+"&sub_category="+sub_category_id))
+         ,catchError(this.handleError<Lesson[]>('get Lessons caught error'))
+      );
+
+ }
+
   public searchLessons(term: string = ""): Observable<Lesson[]> {
     return this.http.get<Lesson[]>(this.lessonsearchUrl+encodeURIComponent(term))
       .pipe(

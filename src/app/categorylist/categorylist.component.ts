@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 import { Category, SubCategory, Lesson } from '../category';
 import { SidebarlinkService } from '../sidebarlink.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-categorylist',
@@ -11,13 +12,31 @@ import { SidebarlinkService } from '../sidebarlink.service';
 export class CategorylistComponent implements OnInit {
    categories: Category[];
    top_lessons: Lesson[];
+   lessons: Lesson[];
+   subcategories: SubCategory[];
+   sub_category_id: string;
+   category_id: string;
+   private sub: any;
 
-  constructor(private sidebarlinkService: SidebarlinkService) { }
+
+  constructor(private sidebarlinkService: SidebarlinkService,
+               private route: ActivatedRoute,
+               public router: Router) { }
 
   ngOnInit(): void {
+
+     this.sub = this.route.queryParams.subscribe(params => {
+        this.sub_category_id = params['sub_category_id'];
+        this.category_id = params['category_id'];
+      });
+
+
      this.getCategories();
      this.getTopLessons();
-  }
+     this.getLessons();
+
+
+    }
 
   getCategories(): void {
     this.sidebarlinkService.getCategories()
@@ -29,4 +48,12 @@ export class CategorylistComponent implements OnInit {
               .subscribe(top_lessons => this.top_lessons = top_lessons);
   }
 
+  getLessons(): void {
+     this.sidebarlinkService.getLessons(this.category_id, this.sub_category_id)
+               .subscribe(top_lessons => this.top_lessons = top_lessons);
+   }
+
+   ngOnDestroy() {
+      this.sub.unsubscribe();
+   }
 }

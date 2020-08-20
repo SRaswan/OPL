@@ -19,7 +19,7 @@
                   </div>
       				<div class="col-auto" *ngFor="let sub_category of category.sub_categories">
       					<div>
-      						<p><a href="#">{{sub_category.name}}</a></p>
+      						<p><a [routerLink]="['/lessonlist']"  [queryParams]="{ sub_category_id: sub_category.id,  category_id: category.id}">{{sub_category.name}}</a></p>
       					</div>
       								<!-- <div *ngIf="i == 3">
       									<p><a class="btn btn-secondary btn-outline-secondary" href="#" role="button">More &raquo;</a></p>
