@@ -31,9 +31,9 @@ export class ArticleService {
       };
     } else {
       return {
-        title: 'Yuk',
-        about:'"Fancy" is a song by South Korean girl group Twice. It was released by JYP Entertainment on April 22, 2019, as the lead single from the group\'s seventh extended play, Fancy You. Wikipedia',
-        videoURL:'https://www.youtube.com/embed/kOHB85vDuow',
+        title: '',
+        about:'',
+        videoURL:'',
       };
     }
   }

@@ -1,15 +1,20 @@
 
-<div class="card mb-3" *ngIf="{data: state$ | async} as state">
+<div class="container-fluid" *ngIf="{data: state$ | async} as state">
 
 	<div *ngIf="state.data.lesson">
 		<div class="home row">
-			<div class="col m-2">
+			<div class="col pt-3 pb-0 mb-0">
+				<h5>{{state.data.lesson.category[0].name}} &gt; {{state.data.lesson.sub_category[0].name}} &gt;</h5>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col pt-0">
 				<h2>{{state.data.lesson.name}}</h2>
 			</div>
 		</div>
 		<div class="row m-2" >
-			    <div class="col-6">
-						<div class="ml-30 embed-responsive embed-responsive-16by9">
+			    <div class="col-6 px-0">
+						<div class="ml-0 embed-responsive embed-responsive-16by9">
 							<youtube-player
 							  videoId={{state.data.lesson.youtube_url}}
 							  suggestedQuality="highres"
@@ -21,7 +26,7 @@
 						</div>
 					</div>
 					<div class="col-6" >
-			        <h4>{{state.data.lesson.category[0].name}} &gt;&gt; {{state.data.lesson.sub_category[0].name}} </h4>
+
 							<p>{{state.data.lesson.description}}</p>
 							<p class="card-text"><small class="text-muted">Last Published: {{state.data.lesson.published_timestamp*1000 | date}}</small></p>
 			    </div>
@@ -29,7 +34,7 @@
 				allowfullscreen> </iframe> -->
 		</div>
 	</div>
-		<p>{{state.data.navigationId}}</p>
+		<!-- <p>{{state.data.navigationId}}</p> -->
 </div>
 
 
@@ -59,7 +64,7 @@
 		    </div>
 	</div>
 </div> -->
-<div class="card mb-3">
+<!-- <div class="card mb-3">
 	<div class="row">
 		<div class="col m-2">
 			<pre>{{ state$ | async | json }}</pre>
@@ -68,7 +73,7 @@
 				<li><a href="https://efficientuser.com/2020/03/09/angular-9-youtuber-player-component/">Youtube Player Component</a></li>
 				<li><a href="https://golb.hplar.ch/2020/04/google-maps-youtube.html">YouTube Player and Google Maps Angular component</a></li>
 			</ul>
-      <!-- <p class="card-text"><a href="https://efficientuser.com/2020/03/09/angular-9-youtuber-player-component/">Youtube Player Component</a></p> -->
+      <p class="card-text"><a href="https://efficientuser.com/2020/03/09/angular-9-youtuber-player-component/">Youtube Player Component</a></p>
 		</div>
 	</div>
-</div>
+</div> -->

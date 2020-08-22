@@ -2,9 +2,6 @@
 	<div class="container home">
       <div class="row">
          <div class="col">
-            <br/>
-            <br/>
-            <br/>
             <p>What do you want to learn today?</p>
             <input class="form-control col-sm-6" placeholder="Search" aria-label="Search" #searchBox id="search-box" (keyup)="search(searchBox.value)" >
             <!-- <form class="form-inline ml-auto">
@@ -18,7 +15,7 @@
                     </tr>
                   </thead> -->
             <div class="card-body">
-               <div class="col border" *ngFor="let lesson of lessons$ | async">
+               <div class="col border rounded" *ngFor="let lesson of lessons$ | async">
                   <div class="row justify-content-start">
                      <div class="col-auto p-2 m-0">
                         <a [routerLink]="['/article', lesson.id]" [state]="{lesson: lesson}">
