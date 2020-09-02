@@ -14,15 +14,18 @@ import { YouTubePlayer } from '@angular/youtube-player';
 export class LessonlistComponent implements OnInit {
    // categories: Category[];
    top_lessons: Lesson[];
-   lessons: Lesson[];
+   // lessons: Lesson[];
    subcategories: SubCategory[];
+
+   // store parameters to the page here
    sub_category_id: string;
    category_id: string;
+
+   // store observable references here to unsubscribe in ngOnDestroy()
    private observable_param: any = null;
    private observable_lessons: any = null;
 
-  @ViewChild(YouTubePlayer) youtubePlayer: YouTubePlayer;
-
+   // @ViewChild(YouTubePlayer) youtubePlayer: YouTubePlayer;
 
   constructor(private sidebarlinkService: SidebarlinkService,
                   private route: ActivatedRoute,
@@ -34,18 +37,12 @@ export class LessonlistComponent implements OnInit {
           this.category_id = params['category_id'];
       });
 
-      // this.getCategories();
       if (this.sub_category_id == undefined || this.sub_category_id == undefined) {
          this.getTopLessons();
       } else {
          this.getLessons();
       }
   }
-
-  // getCategories(): void {
-  //   this.sidebarlinkService.getCategories()
-  //             .subscribe(categories => this.categories = categories);
-  // }
 
   getTopLessons(): void {
     this.observable_lessons = this.sidebarlinkService.getTopLessons()
@@ -64,16 +61,5 @@ export class LessonlistComponent implements OnInit {
          this.observable_lessons.unsubscribe();
 
    }
-
-  // onReady(event: YT.PlayerEvent) {
-  //   event.target.playVideo();
-  // }
-
-  // onStateChange(event: YT.OnStateChangeEvent) {
-  //    if (event.data === YT.PlayerState.CUED) {
-  //       event.target.playVideo();
-  //    }
-  // }
-
 
 }

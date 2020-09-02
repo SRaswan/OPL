@@ -1,6 +1,5 @@
 <main role="main">
 	<div class="container home">
-		<!-- Example row of columns -->
 		<div class="row ml-4">
 			<div class="col-md-4 ">
 				<div class="card mb-4 box-shadow">
@@ -23,18 +22,7 @@
 					</div>
 	      	</div>
 			</div>
-			<!-- <div class="col-md-4 ">
-				<h3>All Categories:</h3>
-				<div class="border rounded overflow-hidden pl-2 pt-2" *ngFor="let category of categories">
-						<h4>
-						<a href=#{{category.name}}>{{category.name}}</a>
-						</h4>
-						<div class="pl-4" *ngFor="let sub_category of category.sub_categories; let i = index;">
-								<p><a href="#">{{sub_category.name}}</a></p>
-						</div>
-				</div>
-				<p><a class="btn btn-secondary" href="#" role="button">More &raquo;</a></p>
-			</div> -->
+
 			<div class="col-md-8 border rounded overflow-hidden">
 				<div class="card mb-4 box-shadow">
 					<div class="card-header">
@@ -42,7 +30,7 @@
 					</div>
 					<div class="card-body">
 						<div class="pl-2 pt-2" *ngFor="let lesson of top_lessons">
-							<!-- <p>{{lesson.categories[0].name}} &gt; {{lesson.sub_categories[0].name}}  &gt; {{lesson.name}}</p> -->
+
 						</div>
 						<div class="col" *ngFor="let lesson of top_lessons">
 			  				<div class="ml-30 embed-responsive embed-responsive-16by9">
@@ -51,8 +39,7 @@
 			  					  suggestedQuality="highres"
 			  						*ngIf=lesson.youtube_url
 									>
-			  						<!-- (ready)="onReady($event)"
-			              		(stateChange)="onStateChange($event)" -->
+
 			  					</youtube-player>
 			  				</div>
 							<p>{{lesson.description}} </p>
@@ -66,26 +53,3 @@
 		</div>
 	</div>
 </main>
-<!-- <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-	<div class="col p-4 d-flex flex-column position-static">
-		<strong class="d-inline-block mb-2 text-primary">World</strong>
-		<h3 class="mb-0">Featured post</h3>
-		<div class="mb-1 text-muted">Nov 12</div>
-		<p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-		<a href="#" class="stretched-link">Continue reading</a>
-	</div>
-	<div class="col-auto d-none d-lg-block">
-		<svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-	</div>
-</div> -->
-
-<!-- <ul class="list-unstyled components">
-		<li *ngFor="let category of categories" class="active">
-				<a href=#{{category.name}} data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{category.id}} - {{category.name}}</a>
-				<ul id={{category.name}} class="collapse list-unstyled">
-						<li *ngFor="let sub_category of category.subCategories" class="active">
-								<a href="#">{{sub_category.name}}</a>
-						</li>
-				</ul>
-		</li>
-</ul> -->

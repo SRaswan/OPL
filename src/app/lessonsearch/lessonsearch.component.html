@@ -1,9 +1,14 @@
-<main role="main">
-	<div class="container home">
+<!-- Page Wrapper -->
+<!-- <div id="wrapper"> -->
+
+<!-- <main role="main"> -->
+<!-- Begin Page Content -->
+	<div class="container-fluid">
       <div class="row">
          <div class="col">
-            <p>What do you want to learn today?</p>
-            <input class="form-control col-sm-6" placeholder="Search" aria-label="Search" #searchBox id="search-box" (keyup)="search(searchBox.value)" >
+            <!-- <p>What do you want to learn today?</p> -->
+            <input class="form-control col-sm-6" placeholder="Search...What do you want to learn today?" aria-label="Search" #searchBox id="search-box" (keyup)="search($event.target.value)" >
+						<!-- <input class="form-control col-sm-6" placeholder="Search" aria-label="Search" #searchBox id="search-box" (keyup)="search(searchBox.value)" > -->
             <!-- <form class="form-inline ml-auto">
               <input class="form-control mr-sm-2" type="text" placeholder="" #searchBox aria-label="Search">
               <button class="btn btn-light my-2 my-sm-0" type="submit" (click)="search(searchBox.value)">Search</button>
@@ -47,4 +52,5 @@
          </div>
       </div>
    </div>
-</main>
+<!-- </main> -->
+<!-- </div> -->

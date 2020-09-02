@@ -4,9 +4,11 @@ import { Component,
           ViewChild,
           ElementRef } from '@angular/core';
 
-import { Observable, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, switchMap
- } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+// import { debounceTime, distinctUntilChanged, switchMap
+//  } from 'rxjs/operators';
+
+import { liveSearch } from '../live-search.operator';
 
 import { Category, SubCategory, Lesson } from '../category';
 import { SidebarlinkService } from '../sidebarlink.service';
@@ -22,10 +24,15 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 export class LessonsearchComponent implements OnInit, OnDestroy{
   @ViewChild('searchBox') searchBox;
-  lessons$: Observable<Lesson[]>;
-  private searchTerms = new Subject<string>();
+  // lessons$: Observable<Lesson[]>;
+  private searchTermSubject = new Subject<string>();
+
+  readonly lessons$ = this.searchTermSubject.pipe(
+    liveSearch((term: string) => this.sidebarLinkService.searchLessons(term))
+  );
+
   private navigationSubscription;
-  private selectedLesson: Lesson;
+  // private selectedLesson: Lesson;
 
   constructor(
     private sidebarLinkService: SidebarlinkService,
@@ -45,9 +52,10 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
   //   this.search(term)
   // }
 
+
   // Push a search term into the observable stream.
    search(term: string): void {
-     this.searchTerms.next(term);
+     this.searchTermSubject.next(term);
    }
 
    searchByURL(): void {
@@ -60,15 +68,15 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
 
 
   ngOnInit(): void{
-    this.lessons$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(200),
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => this.sidebarLinkService.searchLessons(term)),
-    );
-    this.searchByURL();
+    // this.lessons$ = this.searchTerms.pipe(
+    //   // wait 300ms after each keystroke before considering the term
+    //   debounceTime(200),
+    //   // ignore new term if same as previous term
+    //   distinctUntilChanged(),
+    //   // switch to new search observable each time the term changes
+    //   switchMap((term: string) => this.sidebarLinkService.searchLessons(term)),
+    // );
+    // this.searchByURL();
   }
 
   ngOnDestroy(): void {
@@ -78,9 +86,7 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
       if (this.navigationSubscription) {
          this.navigationSubscription.unsubscribe();
       }
-
-      this.sidebarLinkService.selectedLesson = this.selectedLesson;
-
+      // this.sidebarLinkService.selectedLesson = this.selectedLesson;
     }
 
 

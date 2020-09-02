@@ -20,6 +20,8 @@ import { StarthereComponent } from './starthere/starthere.component';
 import { LessonlistComponent } from './lessonlist/lessonlist.component';
 import { LessonsearchComponent } from './lessonsearch/lessonsearch.component';
 import { CategorylistComponent } from './categorylist/categorylist.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { TopbarComponent } from './topbar/topbar.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { CategorylistComponent } from './categorylist/categorylist.component';
     SearchComponent,
     LessonlistComponent,
     LessonsearchComponent,
-    CategorylistComponent
+    CategorylistComponent,
+    DashboardComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,
