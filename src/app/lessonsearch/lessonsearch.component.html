@@ -1,25 +1,22 @@
-<!-- Page Wrapper -->
-<!-- <div id="wrapper"> -->
-
-<!-- <main role="main"> -->
-<!-- Begin Page Content -->
 	<div class="container-fluid">
-      <div class="row">
-         <div class="col">
+      <!-- <div class="row">
+         <div class="col"> -->
             <!-- <p>What do you want to learn today?</p> -->
-            <input class="form-control col-sm-6" placeholder="Search...What do you want to learn today?" aria-label="Search" #searchBox id="search-box" (keyup)="search($event.target.value)" >
-						<!-- <input class="form-control col-sm-6" placeholder="Search" aria-label="Search" #searchBox id="search-box" (keyup)="search(searchBox.value)" > -->
-            <!-- <form class="form-inline ml-auto">
-              <input class="form-control mr-sm-2" type="text" placeholder="" #searchBox aria-label="Search">
-              <button class="btn btn-light my-2 my-sm-0" type="submit" (click)="search(searchBox.value)">Search</button>
-            </form> -->
-                  <!-- <thead class="thead-light">
-                    <tr>
-                      <th>Id</th>
-                      <th>Title</th>
-                    </tr>
-                  </thead> -->
-            <div class="card-body">
+						<div class="row-auto m-4">
+							<div class="col-auto">
+            		<!-- <input class="form-control col-sm-6" placeholder="Search...What do you want to learn today?" aria-label="Search" #searchBox id="search-box" (keyup)="search($event.target.value)" > -->
+								<div class="input-group">
+									<input type="text" class="form-control col-sm-6 border-0 small" placeholder="Search for...What do you want to learn today?" aria-label="Search" aria-describedby="basic-addon2" (keyup)="search($event.target.value)">
+									<div class="input-group-append">
+										<button class="btn btn-primary" type="button">
+											<i class="fas fa-search fa-sm"></i>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					  <!-- <div class="card-body">
                <div class="col border rounded" *ngFor="let lesson of lessons$ | async">
                   <div class="row justify-content-start">
                      <div class="col-auto p-2 m-0">
@@ -47,10 +44,47 @@
                      </div>
                   </div>
                </div>
-            </div>
+            </div> -->
 
-         </div>
-      </div>
+						<!-- Content Row & lesson loop-->
+					  <div class="row mb-2" *ngFor="let lesson of lessons$ | async">
+					    <!-- <div class="col-xl-3 col-md-6 mb-4"> -->
+					    <div class="col-xl-12">
+					        <div class="card border-left-primary shadow h-100 py-2">
+
+					    		<!-- lesson card -->
+					    		<div class="card-body">
+					          <div class="row justify-content-start">
+					            <div class="col-auto p-2 m-0">
+					               <img src="https://img.youtube.com/vi/{{lesson.youtube_url}}/maxresdefault.jpg" alt="Loading..." width="192" height="108">
+					            </div>
+					            <div class="col-9 p-2 m-0" >
+					               <div class="row">
+					                  <div class="col-auto px-2 py-0 m-0">
+					                     <h5><a [routerLink]="['/article', lesson.id]" [state]="{lesson: lesson}">{{lesson.name}}</a></h5>
+					                  </div>
+					                  <div class="col-auto px-2 py-0 m-0 text-muted">
+					                     <p>{{lesson.author_name}} </p>
+					                  </div>
+					                  <div class="col-auto px-2 py-0 m-0 text-muted">
+					                     <p>{{lesson.published_timestamp*1000 | date }}</p>
+					                  </div>
+					               </div>
+					               <div class="row">
+					                  <div class="col-12 px-2 py-0 m-0">
+					                     <p>{{lesson.description}} </p>
+					                  </div>
+					               </div>
+					            </div>
+					         	</div>
+					      	</div>
+					    		<!-- lesson card : END -->
+					    	</div>
+					   </div>
+					  </div>
+					  <!-- Content Row & lesson loop: END -->
+
+
+         <!-- </div>
+      </div> -->
    </div>
-<!-- </main> -->
-<!-- </div> -->
