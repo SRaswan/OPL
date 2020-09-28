@@ -2,11 +2,15 @@
       <!-- <div class="row">
          <div class="col"> -->
             <!-- <p>What do you want to learn today?</p> -->
+				<div class="d-sm-flex align-items-center justify-content-between mb-2 pt-2">
+				 <h1 class="h3 mb-0 text-gray-800">Search</h1>
+				</div>
+
 						<div class="row-auto m-4">
 							<div class="col-auto">
             		<!-- <input class="form-control col-sm-6" placeholder="Search...What do you want to learn today?" aria-label="Search" #searchBox id="search-box" (keyup)="search($event.target.value)" > -->
 								<div class="input-group">
-									<input type="text" class="form-control col-sm-6 border-0 small" placeholder="Search for...What do you want to learn today?" aria-label="Search" aria-describedby="basic-addon2" (keyup)="search($event.target.value)">
+									<input type="text" class="form-control col-sm-6 border-0 small" placeholder="What do you want to learn today?" aria-label="Search" aria-describedby="basic-addon2" (keyup)="search($event.target.value)">
 									<div class="input-group-append">
 										<button class="btn btn-primary" type="button">
 											<i class="fas fa-search fa-sm"></i>
