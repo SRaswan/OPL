@@ -4,7 +4,7 @@
 	<div *ngIf="state.data.lesson">
 		<div class="home row">
 			<div class="col pt-3 pb-0 mb-0">
-				<h5>{{state.data.lesson.category[0].name}} &gt; {{state.data.lesson.sub_category[0].name}} &gt;</h5>
+				<h5><a routerLink="/categorylist">{{state.data.lesson.category[0].name}}</a> &gt; {{state.data.lesson.sub_category[0].name}} &gt;</h5>
 			</div>
 		</div>
 		<div class="row">
