@@ -1,6 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-
+.jumbotron {
+   margin-left: -30px!important;
+   margin-right: -30px!important;
+   background-image: url('./assets/img/jumbotronimage.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: -5px -50px;
+}
 /* html * {
 	font-family: Georgia, serif !important;
 }
