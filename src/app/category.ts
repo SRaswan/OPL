@@ -1,26 +1,30 @@
 export class SubCategory {
 	id: number;
 	name: string;
-
-	constructor(id:number, name:string) {
+	count: number;
+	
+	constructor(id:number, name:string, count:number) {
 		this.id = id;
     this.name = name;
+		this.count = count;
 	}
 }
 
 export class Category {
 	id: number;
 	name: string;
+	count: number;
 	sub_categories: SubCategory[];
 
-	constructor(id:number, name:string) {
+	constructor(id:number, name:string, count:number) {
 		this.id = id;
     this.name = name;
-		this.sub_categories = []
+		this.count = count;
+		this.sub_categories = [];
 	}
 
-	addSubCategory(id:number, name:string) {
-		this.sub_categories.push(new SubCategory(id, name));
+	addSubCategory(id:number, name:string, count:number) {
+		this.sub_categories.push(new SubCategory(id, name, count));
 	}
 }
 

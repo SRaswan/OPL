@@ -1,0 +1,21 @@
+<!-- <div class="card border-left-primary shadow h-100 py-0" > -->
+<div [className]="'shadow h-100 py-0 border-left-'+cardcolor">
+  <!-- <div class="shadow h-100 py-0"> -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+      <h5 class="m-0 pb-0 font-weight-bold text-gray-800">
+        <span class="text-secondary"> <i [className]="'fas '+cardicon"></i></span>&nbsp;
+        {{category.name}}
+      </h5>
+      <button type="button" [className]="'m-0 btn btn-'+cardcolor">
+        <span class="badge badge-light">{{category.count}}</span>
+      </button>
+    </div>
+    <div class="card-body">
+      <div class="row-auto py-0" *ngFor="let sub_category of category.sub_categories">
+        <div class="col-auto d-flex justify-content-between" >
+          <span> <p><a [routerLink]="['/lessonlist']" [queryParams]="{sub_category_id: sub_category.id,  category_id: category.id}">{{sub_category.name}}</a></p> </span> <span>...</span> <span>&nbsp;{{sub_category.count}}&nbsp;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->

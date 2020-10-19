@@ -22,6 +22,7 @@ import { LessonsearchComponent } from './lessonsearch/lessonsearch.component';
 import { CategorylistComponent } from './categorylist/categorylist.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TopbarComponent } from './topbar/topbar.component';
+import { CategorycardComponent } from './categorycard/categorycard.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { TopbarComponent } from './topbar/topbar.component';
     LessonsearchComponent,
     CategorylistComponent,
     DashboardComponent,
-    TopbarComponent
+    TopbarComponent,
+    CategorycardComponent
   ],
   imports: [
     BrowserModule,

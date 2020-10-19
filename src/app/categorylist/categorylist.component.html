@@ -1,40 +1,33 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
  <!-- Page Heading -->
- <div class="d-sm-flex align-items-center justify-content-between mb-2 pt-3">
+ <!-- <div class="d-sm-flex align-items-center justify-content-between mb-2 pt-3">
 	<h1 class="h3 mb-0 text-gray-900">Categories</h1>
- </div>
-
+ </div> -->
 <!-- <main role="main"> -->
-	<div class="row justify-content-left">
+	<div class="row mb-2 pt-4">
+	    <div class="col-sm-4 pb-0" *ngFor="let category of categories; let index = index;">
+        <app-categorycard [category]="category" [cardcolor]="cardcolors[index % cardcolors.length]" [cardicon]="cardicons[index % cardicons.length]"></app-categorycard>
 
-	    <div class="col-auto pb-5" *ngFor="let category of categories">
-		    <div class="card border-left-primary shadow h-100 py-2" >
-		      <div class="card-body">
-
-						<div class="row justify-content-left">
-
-		          <div class="col-auto pb-2 m-0">
-		             <h4 class="text-gray-800">{{category.name}}</h4>
-		          </div>
-						</div>
-
-						<div class="row justify-content-left" *ngFor="let sub_category of category.sub_categories">
-							<div class="col-auto" >
-								<div>
-									<p><a [routerLink]="['/lessonlist']"  [queryParams]="{ sub_category_id: sub_category.id,  category_id: category.id}">{{sub_category.name}}</a></p>
-								</div>
-										<!-- <div *ngIf="i == 3">
-											<p><a class="btn btn-secondary btn-outline-secondary" href="#" role="button">More &raquo;</a></p>
-										</div> -->
+		    <!-- <div class="card border-left-primary shadow h-100 py-0" >
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h5 class="m-0 pb-0 font-weight-bold text-gray-800">
+              <i class="fas fa-cogs"></i> {{category.name}}
+            </h5>
+            <button type="button" class="m-0 btn btn-primary">
+              <span class="badge badge-light">{{category.count}}</span>
+            </button>
+          </div>
+		      <div class="card-body align-items-center justify-content-between">
+						<div class="row-auto py-1 " *ngFor="let sub_category of category.sub_categories">
+							<div class="col-auto d-flex justify-content-between" >
+								<span> <p><a [routerLink]="['/lessonlist']" [queryParams]="{ sub_category_id: sub_category.id,  category_id: category.id}">{{sub_category.name}}</a></p> </span> <span>...</span> <span class="badge badge-pill badge-primary">{{sub_category.count}}</span>
 							</div>
 						</div>
-
 		   		</div>
-					<!-- card-body -->
-	   		</div>
-      </div>
+	   		</div> -->
 
+      </div>
 	</div>
 </div>
 <!-- </main> -->
