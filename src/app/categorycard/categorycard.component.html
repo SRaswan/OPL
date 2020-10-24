@@ -14,7 +14,7 @@
     <div class="card-body">
       <div class="row-auto py-0" *ngFor="let sub_category of category.sub_categories">
         <div class="col-auto d-flex justify-content-between" >
-          <span> <p><a [routerLink]="['/lessonlist']" [queryParams]="{sub_category_id: sub_category.id,  category_id: category.id}">{{sub_category.name}}</a></p> </span> <span>...</span> <span>&nbsp;{{sub_category.count}}&nbsp;</span>
+          <span> <p><a [routerLink]="['/lessonlist']" [queryParams]="{sub_category_id: sub_category.id,  category_id: category.id}">{{sub_category.name}}</a></p> </span> <span> </span> <span>&nbsp;{{sub_category.count}}&nbsp;</span>
         </div>
       </div>
     </div>
