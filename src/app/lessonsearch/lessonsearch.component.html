@@ -6,7 +6,7 @@
 				 <h3 class="text-gray-900">Search</h3>
 				</div>
 
-						<div class="row-auto m-2">
+						<div class="row-auto mb-2 mt-2">
 							<div class="col-auto">
             		<!-- <input class="form-control col-sm-6" placeholder="Search...What do you want to learn today?" aria-label="Search" #searchBox id="search-box" (keyup)="search($event.target.value)" > -->
 								<div class="input-group">
@@ -51,7 +51,7 @@
             </div> -->
 
 						<!-- Content Row & lesson loop-->
-					  <div class="row mb-2" *ngFor="let lesson of lessons$ | async">
+					  <div class="row mb-0" *ngFor="let lesson of lessons$ | async">
 					    <!-- <div class="col-xl-3 col-md-6 mb-4"> -->
 					    <div class="col-xl-12">
 					        <div class="card border-left-primary shadow h-100 py-2">
@@ -62,7 +62,7 @@
 					            <div class="col-auto p-1 m-0">
 					               <img src="https://img.youtube.com/vi/{{lesson.youtube_url}}/maxresdefault.jpg" alt="Loading..." width="192" height="108">
 					            </div>
-					            <div class="col-9 p-1 m-0" >
+					            <div class="col-9 p-1 m-0 ml-1" >
 					               <div class="row">
 					                  <div class="col-auto px-2 py-0 m-0">
 					                     <h5><a [routerLink]="['/article', lesson.id]" [state]="{lesson: lesson}">{{lesson.name}}</a></h5>
