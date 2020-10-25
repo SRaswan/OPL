@@ -23,6 +23,7 @@ import { CategorylistComponent } from './categorylist/categorylist.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { CategorycardComponent } from './categorycard/categorycard.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CategorycardComponent } from './categorycard/categorycard.component';
     CategorylistComponent,
     DashboardComponent,
     TopbarComponent,
-    CategorycardComponent
+    CategorycardComponent,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule,

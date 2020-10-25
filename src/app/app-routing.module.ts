@@ -13,6 +13,7 @@ import { LessonlistComponent } from './lessonlist/lessonlist.component';
 import { LessonsearchComponent } from './lessonsearch/lessonsearch.component';
 import { CategorylistComponent } from './categorylist/categorylist.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PrivacyComponent } from './privacy/privacy.component';
 
 const routes: Routes = [
 	// { path: '', pathMatch:'full', component: RouterModule },
@@ -28,7 +29,8 @@ const routes: Routes = [
 	{ path: 'math', component: MathComponent },
 	{ path: 'trumpet', component: TrumpetComponent },
 	{ path: 'article/:id', component: ArticleComponent },
-	{ path: 'categorylist', component: CategorylistComponent}
+	{ path: 'categorylist', component: CategorylistComponent},
+	{ path: 'privacy', component: PrivacyComponent}
 	];
 
 @NgModule({
