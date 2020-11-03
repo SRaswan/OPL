@@ -18,7 +18,7 @@ export class CategorylistComponent implements OnInit {
    category_id: string;
 
    cardcolors: string[] = ["primary", "secondary", "info", "warning", "success", "secondary", "light", "dark"];
-   cardicons: string[] = ["fa-laptop", "fa-globe-americas", "fa-calculator", "fa-music", "fa-flask","fa-cogs"];
+   cardicons: string[] = ["fa-laptop", "fa-globe", "fa-calculator", "fa-music", "fa-flask","fa-cogs"];
 
    private sub: any;
    private sub_cat: any;
