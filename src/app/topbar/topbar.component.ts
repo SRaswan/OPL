@@ -3,6 +3,7 @@ import { DataexchangeService } from '../services/dataexchange.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { CurrentUser } from '../category';
 import { SidebarlinkService } from '../sidebarlink.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-topbar',
@@ -10,6 +11,8 @@ import { SidebarlinkService } from '../sidebarlink.service';
   styleUrls: ['./topbar.component.css']
 })
 export class TopbarComponent implements OnInit {
+  private opl_login_url = environment.base_api_server+'/opl/login';
+  private opl_logout_url = environment.base_api_server+'/opl/logout';
 
   current_date: Date;
   duration_window_options: Record<string, number>;

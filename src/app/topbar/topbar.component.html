@@ -152,7 +152,7 @@
 
   <span *ngIf="(current_user == null || current_user.is_anonymous) else loaded" class="badge shadow nav-item">
     <!-- <li> -->
-      <a class="btn btn-primary border-0 small" role="button" href="https://127.0.0.1:5000/login">
+      <a class="btn btn-primary border-0 small" role="button" href="{{opl_login_url}}">
         Sign In
       </a>
       <!-- <span *ngIf="current_user == null" class="badge shadow nav-item">
@@ -180,7 +180,7 @@
           Profile
         </a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="https://127.0.0.1:5000/logout" data-toggle="modal" data-target="#logoutModal">
+        <a class="dropdown-item" href="{{opl_logout_url}}" data-toggle="modal" data-target="#logoutModal">
           <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
           Logout
         </a>
