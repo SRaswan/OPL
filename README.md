@@ -18,7 +18,7 @@ ng generate service
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Run as secure site
-`ng serve --port 4500 --ssl --ssl-key cert/localhost.key  --ssl-cert cert/localhost.crt --open`
+`ng serve --port 8080 --ssl --ssl-key cert/localhost.key  --ssl-cert cert/localhost.crt --open`
 
 ## Backend for the application is here:
 GitHub: https://github.com/mraswan/opl_microservice.git

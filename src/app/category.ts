@@ -2,7 +2,7 @@ export class SubCategory {
 	id: number;
 	name: string;
 	count: number;
-	
+
 	constructor(id:number, name:string, count:number) {
 		this.id = id;
     this.name = name;
@@ -48,4 +48,8 @@ export interface Lesson {
 export interface LessonState {
 	lesson: Lesson
 	navigationId: string
+}
+
+export interface CurrentUser {
+
 }

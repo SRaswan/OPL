@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SidebarLink } from './sidebarlink';
 import { SidebarMenu } from './sidebarmenu';
-import { Category, SubCategory, Lesson } from './category';
+import { Category, SubCategory, Lesson, CurrentUser } from './category';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -19,11 +19,21 @@ export class SidebarlinkService {
   private categoryUrl = environment.base_api_server+'/opl/dynamic/categories';  // URL to web api
   private lessonUrl = environment.base_api_server+'/opl/dynamic/lessons';  // URL to web api
   private lessonsearchUrl = environment.base_api_server+'/opl/dynamic/searchlessons?query=';  // URL to web api
-  // public selectedLesson: Lesson;
+  private currentuserUrl = environment.base_api_server+'/opl/dynamic/current_user';  // URL to web api
 
   constructor(
     private http: HttpClient,
     private messageService: MessageService) { }
+
+  // Get Current User
+  public getCurrentUser(): Observable<CurrentUser> {
+    return this.http.get<CurrentUser>(this.currentuserUrl)
+      .pipe(
+        map(resp => resp)
+        ,tap(resp => this.log('fetched current user.'))
+        ,catchError(this.handleError<CurrentUser>('get fetched current user caught error'))
+      );
+  }
 
   public getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(this.categoryUrl)
@@ -64,49 +74,49 @@ export class SidebarlinkService {
       );
   }
 
-	public getLinks(menu: String): SidebarLink[] {
-
-		if(menu == "trumpet") {
-			return [
-				{name: 'Buzz' },
-				{name: 'Tone' },
-				{name: 'More' }
-			];
-
-		} else if(menu == "math") {
-			return [
-				{name: 'math1'},
-				{name: 'math2' }
-			];
-
-		} else if (menu == "science") {
-			return [
-				{name: 'sci1'},
-				{name: 'sci2' },
-				{name: 'sci3' }
-			];
-
-		} else if (menu == "music") {
-			return [
-				{name: 'music1'},
-				{name: 'music2' },
-				{name: 'music3' }
-			];
-		}
-	}
-	public getMenus(menuString: String): SidebarMenu[] {
-		if (menuString == 'music') {
-			return [
-				{name: 'Trumpet' },
-			];
-		} else {
-			return [
-				{name: 'Trumpet' },
-				{name: 'Ra' },
-				{name: 'a_'+menuString+'_a' },
-			];
-		}
-	}
+	// public getLinks(menu: String): SidebarLink[] {
+  //
+	// 	if(menu == "trumpet") {
+	// 		return [
+	// 			{name: 'Buzz' },
+	// 			{name: 'Tone' },
+	// 			{name: 'More' }
+	// 		];
+  //
+	// 	} else if(menu == "math") {
+	// 		return [
+	// 			{name: 'math1'},
+	// 			{name: 'math2' }
+	// 		];
+  //
+	// 	} else if (menu == "science") {
+	// 		return [
+	// 			{name: 'sci1'},
+	// 			{name: 'sci2' },
+	// 			{name: 'sci3' }
+	// 		];
+  //
+	// 	} else if (menu == "music") {
+	// 		return [
+	// 			{name: 'music1'},
+	// 			{name: 'music2' },
+	// 			{name: 'music3' }
+	// 		];
+	// 	}
+	// }
+	// public getMenus(menuString: String): SidebarMenu[] {
+	// 	if (menuString == 'music') {
+	// 		return [
+	// 			{name: 'Trumpet' },
+	// 		];
+	// 	} else {
+	// 		return [
+	// 			{name: 'Trumpet' },
+	// 			{name: 'Ra' },
+	// 			{name: 'a_'+menuString+'_a' },
+	// 		];
+	// 	}
+	// }
 
   /// Observable Service
   // public getCategoriesDummy(): Observable<Category[]> {

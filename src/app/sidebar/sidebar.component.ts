@@ -10,7 +10,7 @@ import { SidebarMenu } from '../sidebarmenu';
 })
 export class SidebarComponent implements OnInit {
 
-	sidebarlinks: SidebarLink[];
+	// sidebarlinks: SidebarLink[];
 //	subsidebarlink: SubsidebarLink[];
 	Menu: String;
 //	Name: SidebarLink["name"];
@@ -30,7 +30,7 @@ export class SidebarComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.sidebarlinks = this.sidebarlinkService.getLinks(this.menu);
+		// this.sidebarlinks = this.sidebarlinkService.getLinks(this.menu);
 //		this.subsidebarlink = this.sidebarlinkService.getSublinks(this.name);
 	}
 

@@ -7,6 +7,7 @@ import { Component,
 import { Subject } from 'rxjs';
 // import { debounceTime, distinctUntilChanged, switchMap
 //  } from 'rxjs/operators';
+import { DataexchangeService } from '../services/dataexchange.service';
 
 import { liveSearch } from '../live-search.operator';
 
@@ -37,7 +38,8 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
   constructor(
     private sidebarLinkService: SidebarlinkService,
     private router: Router,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private dataExchangeService: DataexchangeService) {
       this.navigationSubscription = this.router.events.subscribe((e: any) => {
         // If it is a NavigationEnd event re-initalise the component
         if (e instanceof NavigationEnd) {
@@ -67,7 +69,10 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
    }
 
 
-  ngOnInit(): void{
+  ngOnInit(): void {
+
+    this.dataExchangeService.searchQuerySourceObjservable.subscribe(search_term => this.searchTermSubject.next(search_term));
+
     // this.lessons$ = this.searchTerms.pipe(
     //   // wait 300ms after each keystroke before considering the term
     //   debounceTime(200),
