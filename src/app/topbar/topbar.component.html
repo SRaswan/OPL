@@ -1,5 +1,5 @@
 <!-- Topbar -->
-<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+<nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
 
   <!-- Sidebar Toggle (Topbar) -->
   <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -19,7 +19,7 @@
   </form>
 
   <!-- Topbar Navbar -->
-  <ul class="navbar-nav ml-auto">
+  <!-- <ul class="navbar-nav ml-auto"> -->
 
     <!-- Nav Item - Search Dropdown (Visible Only XS) -->
     <!-- <li class="nav-item dropdown no-arrow d-sm-none">
@@ -42,13 +42,11 @@
     </li> -->
 
     <!-- Nav Item - Alerts -->
-    <li class="nav-item dropdown no-arrow mx-1">
+    <!-- <li class="nav-item dropdown no-arrow mx-1">
       <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i class="fas fa-bell fa-fw"></i>
-        <!-- Counter - Alerts -->
         <span class="badge badge-danger badge-counter">3+</span>
       </a>
-      <!-- Dropdown - Alerts -->
       <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
         <h6 class="dropdown-header">
           Alerts Center
@@ -88,7 +86,7 @@
         </a>
         <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
       </div>
-    </li>
+    </li> -->
 
     <!-- Nav Item - Messages -->
     <!-- <li class="nav-item dropdown no-arrow mx-1">
@@ -146,9 +144,9 @@
       </div>
     </li> -->
 
-    <div class="topbar-divider d-none d-sm-block"></div>
+    <!-- <div class="topbar-divider d-none d-sm-block"></div>
 
-  </ul>
+  </ul> -->
 
   <span *ngIf="(current_user == null || current_user.is_anonymous) else loaded" class="badge shadow nav-item">
     <!-- <li> -->
