@@ -50,6 +50,17 @@ export interface LessonState {
 	navigationId: string
 }
 
+export interface Contributor {
+	id: number;
+	email: string;
+	name: string;
+	display_name: string;
+	profile_pic: string;
+	lesson_count: number;
+	about_me: string;
+	skills: any;
+}
+
 export interface CurrentUser {
 
 }

@@ -34,7 +34,7 @@ const routes: Routes = [
 	{ path: 'categorylist', component: CategorylistComponent},
 	{ path: 'privacy', component: PrivacyComponent},
 	{ path: 'contributors', component: ContributorsComponent},
-	{ path: 'profile', component: ProfileComponent}
+	{ path: 'profile/:id', component: ProfileComponent}
 	];
 
 @NgModule({

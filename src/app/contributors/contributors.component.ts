@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Contributor } from '../category';
+import { SidebarlinkService } from '../sidebarlink.service';
 
 @Component({
   selector: 'app-contributors',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContributorsComponent implements OnInit {
 
-  constructor() { }
+  contributors: Contributor[];
+  private observable_contributors: any = null;
+
+  constructor(private sidebarlinkService: SidebarlinkService) { }
 
   ngOnInit(): void {
+     this.getContributors();
+  }
+
+  getContributors(): void {
+    this.observable_contributors = this.sidebarlinkService.getContributors()
+             .subscribe(contributors => this.contributors = contributors);
+  }
+
+  ngOnDestroy() {
+
+     if (this.observable_contributors != null)
+        this.observable_contributors.unsubscribe();
+
   }
 
 }

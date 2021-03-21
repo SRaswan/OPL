@@ -6,7 +6,7 @@
  </div> -->
 <!-- <main role="main"> -->
 	<div class="row mb-2 pt-4">
-	    <div class="col-sm-4 pb-4" *ngFor="let category of categories; let index = index;">
+	    <div class="col-xl-4 pb-4" *ngFor="let category of categories; let index = index;">
         <app-categorycard [category]="category" [cardcolor]="cardcolors[index % cardcolors.length]" [cardicon]="cardicons[index % cardicons.length]"></app-categorycard>
 
 		    <!-- <div class="card border-left-primary shadow h-100 py-0" >
