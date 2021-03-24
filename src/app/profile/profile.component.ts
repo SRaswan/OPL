@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Contributor, Lesson } from '../category';
-import { SidebarlinkService } from '../sidebarlink.service';
+import { Contributor, Lesson } from '../models/allmodels';
+import { BackendapiService } from '../services/backendapi.service';
 
 @Component({
   selector: 'app-profile',
@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
     private observable_param: any = null;
     private observable_lessons: any = null;
 
-  constructor(private sidebarlinkService: SidebarlinkService,
+  constructor(private sidebarlinkService: BackendapiService,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {

@@ -1,39 +1,16 @@
-<!-- <div class="container-fluid"> -->
-
-  <!-- header -->
-  <!-- <app-header></app-header> -->
-
-  <!-- testing the home page -->
-
-  <!-- routes will be rendered here -->
-  <!-- <router-outlet></router-outlet> -->
-
-
-
-  <!-- footer -->
-  <!-- <app-footer></app-footer> -->
+<!-- Navigation TopBar Component-->
+<app-topbar></app-topbar>
+<!-- Page Wrapper -->
+<!-- <div id="wrapper"> -->
+<!-- sidebar -component -->
+<!-- <app-sidebar></app-sidebar> -->
+<!-- Content Wrapper -->
+<!-- <div id="content-wrapper" class="d-flex flex-column"> -->
+<!-- <div id="content"> -->
+<router-outlet></router-outlet>
+<!-- </div> -->
+<!-- <app-footer></app-footer> -->
 
 <!-- </div> -->
-
-<!-- Page Wrapper -->
-<div id="wrapper">
-  <!-- sidebar -component -->
-  <app-sidebar></app-sidebar>
-  <!-- Content Wrapper -->
-  <div id="content-wrapper" class="d-flex flex-column">
-    <!-- Main Content -->
-    <div id="content">
-
-      <!-- TopBar Component-->
-      <app-topbar></app-topbar>
-
-      <router-outlet></router-outlet>
-
-    </div>
-      <app-footer></app-footer>
-      <!-- Main Content: END -->
-    </div>
-  <!-- Content Wrapper: END -->
-
-</div>
-<!-- Page Wrapper: END -->
+<!-- </div> -->
+<app-footer></app-footer>

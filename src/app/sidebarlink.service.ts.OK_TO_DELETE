@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { SidebarLink } from './sidebarlink';
-import { SidebarMenu } from './sidebarmenu';
-import { Category, SubCategory, Lesson, CurrentUser, Contributor } from './category';
+import { SidebarLink } from './sidebarlink.ts.OK_TO_DELETE';
+import { SidebarMenu } from './sidebarmenu.ts.OK_TO_DELETE';
+import { Category, SubCategory, Lesson, CurrentUser, Contributor } from './models/allmodels';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ArticleData } from './articleData'
+import { ArticleData } from './articleData.ts.OK_TO_DELETE'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';

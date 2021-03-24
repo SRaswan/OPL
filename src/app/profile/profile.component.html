@@ -1,69 +1,68 @@
-
-<div class="row p-0">
-    <div class="col-md-12 mx-auto">
-        <!-- Profile widget -->
-        <div class="bg-white shadow overflow-hidden">
-            <div class="px-4 pt-0 pb-4 cover">
-                <div class="media align-items-end profile-head">
-                    <div class="profile mr-3">
-                       <img src="{{profile.profile_pic}}" onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'" alt="..." width="130" class="rounded mb-2 img-thumbnail">
-                    </div>
-                    <div class="media-body mb-5 mt-0 pt-0 text-white">
-                        <h3 class="mt-0 mb-0">{{profile.name}}</h3>
-                        <a href="mailto: {{profile.email}}" class="small mb-4 mt-0 pt-0">{{profile.email}}</a>
+<div class="container-fluid">
+    <div class="row p-0">
+        <div class="col-md-12 mx-auto">
+            <!-- Profile widget -->
+            <div class="bg-white shadow overflow-hidden">
+                <div class="px-4 pt-0 pb-4 cover">
+                    <div class="media align-items-end profile-head">
+                        <div class="profile mr-3">
+                        <img src="{{profile.profile_pic}}" onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'" alt="..." width="130" class="rounded mb-2 img-thumbnail">
+                        </div>
+                        <div class="media-body mb-5 mt-0 pt-0 text-white">
+                            <h3 class="mt-0 mb-0">{{profile.name}}</h3>
+                            <a href="mailto: {{profile.email}}" class="small mb-4 mt-0 pt-0">{{profile.email}}</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="bg-white p-3 d-flex justify-content-end text-center pt-0 mt-0">
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item px-3">
-                        <h5 class="font-weight-bold text-gray-800 mb-0 d-block">{{profile.lesson_count}}</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Lessons</small>
-                    </li>
-                    <!-- <li class="list-inline-item px-3">
-                        <h5 class="font-weight-bold text-gray-800 mb-0 d-block">745</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Views</small>
-                    </li>
-                    <li class="list-inline-item px-3">
-                        <h5 class="font-weight-bold text-gray-800 mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-thumbs-up mr-1"></i>Likes</small>
-                    </li> -->
-                </ul>
-            </div>
-            <div class="px-4 pb-3 pt-0 mt-0">
-                <h5 class="mb-1 font-weight-bold text-gray-900">About</h5>
-                <div class="p-3 rounded shadow-sm bg-light">
-                    <p class="font-italic text-gray-800 mb-0">{{profile.about_me}}</p>
-                    <div class="row pt-2">
-                    <div class="col-auto" *ngFor="let skill of profile.skills;">
-                        <h4> <span class="badge badge-pill badge-primary">{{profile.skill}}</span> </h4>
-                    </div>
-
-                     </div>
+                <div class="bg-white p-3 d-flex justify-content-end text-center pt-0 mt-0">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item px-3">
+                            <h5 class="font-weight-bold text-gray-800 mb-0 d-block">{{profile.lesson_count}}</h5><small class="text-muted"> <i class="fas fa-image mr-1"></i>Lessons</small>
+                        </li>
+                        <!-- <li class="list-inline-item px-3">
+                            <h5 class="font-weight-bold text-gray-800 mb-0 d-block">745</h5><small class="text-muted"> <i class="fas fa-user mr-1"></i>Views</small>
+                        </li>
+                        <li class="list-inline-item px-3">
+                            <h5 class="font-weight-bold text-gray-800 mb-0 d-block">340</h5><small class="text-muted"> <i class="fas fa-thumbs-up mr-1"></i>Likes</small>
+                        </li> -->
+                    </ul>
                 </div>
-            </div>
-            <div class="py-2 px-4">
+                <div class="px-4 pb-3 pt-0 mt-0">
+                    <h5 class="mb-1 font-weight-bold text-gray-900">About</h5>
+                    <div class="p-3 rounded shadow-sm bg-light">
+                        <p class="font-italic text-gray-800 mb-0">{{profile.about_me}}</p>
+                        <div class="row pt-2">
+                        <div class="col-auto" *ngFor="let skill of profile.skills;">
+                            <h4> <span class="badge badge-pill badge-primary">{{profile.skill}}</span> </h4>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
                 <div class="d-flex align-items-center justify-content-between mb-1">
                     <h5 class="mb-0 font-weight-bold text-gray-900">Recent lessons</h5>
-                </div>
-
-                <div class="row px-0 mb-0 pt-0">
-
-                  <div class="col-xl-6 m-0 px-2 pb-3" *ngFor="let lesson of lessons;" >
-                <div class="card bg-dark text-white rounded" [routerLink]="['/article', lesson.id]" [state]="{lesson: lesson}">
-                    <img class="rounded ex1" src="https://img.youtube.com/vi/{{lesson.youtube_url}}/maxresdefault.jpg" alt="Loading...">
-                    <div class="card-img-overlay">
-                      <h4 class="card-title font-weight-bold ">{{lesson.name}}</h4>
-                      <h6 class="card-text ">{{lesson.description}}</h6>
-                      <p class="card-text ">{{lesson.published_timestamp*1000 | date }}</p>
+                </div>                
+                <div class="py-2 px-4">
+                    <div class="row px-0 mb-0 pt-0">
+                        <div class="col-md-4 m-0 px-2 pb-2" *ngFor="let lesson of lessons;" >
+                        <div class="card bg-dark text-white rounded" [routerLink]="['/article', lesson.id]" [state]="{lesson: lesson}">
+                            <img class="rounded ex1" src="https://img.youtube.com/vi/{{lesson.youtube_url}}/maxresdefault.jpg" alt="Loading..." height="350">
+                            <div class="card-img-overlay">
+                                <h4 class="card-title font-weight-bold ">{{lesson.name}}</h4>
+                                <h6 class="card-text ">{{lesson.description}}</h6>
+                                <p class="card-text ">{{lesson.published_timestamp*1000 | date }}</p>2
+                            </div>
+                        </div>
                     </div>
+                        <!-- lesson card : END -->
+                    </div>
+
+                    <!-- <div class="col-lg-6 mb-2 pr-lg-1"><img src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 mb-2 pl-lg-1"><img src="https://images.unsplash.com/photo-1493571716545-b559a19edd14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 pr-lg-1 mb-2"><img src="https://images.unsplash.com/photo-1453791052107-5c843da62d97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 pl-lg-1"><img src="https://images.unsplash.com/photo-1475724017904-b712052c192a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div> -->
+
                 </div>
-                 </div>
-                     <!-- lesson card : END -->
-                 </div>
-
-                 <!-- <div class="col-lg-6 mb-2 pr-lg-1"><img src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
-                 <div class="col-lg-6 mb-2 pl-lg-1"><img src="https://images.unsplash.com/photo-1493571716545-b559a19edd14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
-                 <div class="col-lg-6 pr-lg-1 mb-2"><img src="https://images.unsplash.com/photo-1453791052107-5c843da62d97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
-                 <div class="col-lg-6 pl-lg-1"><img src="https://images.unsplash.com/photo-1475724017904-b712052c192a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div> -->
-
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
-import { Category, SubCategory, Lesson } from '../category';
-import { SidebarlinkService } from '../sidebarlink.service';
+import { Category, SubCategory, Lesson } from '../models/allmodels';
+import { BackendapiService } from '../services/backendapi.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { YouTubePlayer } from '@angular/youtube-player';
@@ -27,7 +27,7 @@ export class LessonlistComponent implements OnInit {
 
    // @ViewChild(YouTubePlayer) youtubePlayer: YouTubePlayer;
 
-  constructor(private sidebarlinkService: SidebarlinkService,
+  constructor(private sidebarlinkService: BackendapiService,
                   private route: ActivatedRoute,
                   public router: Router) { }
 

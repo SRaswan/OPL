@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataexchangeService } from '../services/dataexchange.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { CurrentUser } from '../category';
-import { SidebarlinkService } from '../sidebarlink.service';
+import { CurrentUser } from '../models/allmodels';
+import { BackendapiService } from '../services/backendapi.service';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -22,7 +22,7 @@ export class TopbarComponent implements OnInit {
 
   constructor(private dataExchangeService: DataexchangeService,
               private router: Router,
-              private sidebarlinkService: SidebarlinkService
+              private sidebarlinkService: BackendapiService
             ) { }
 
   ngOnInit() {

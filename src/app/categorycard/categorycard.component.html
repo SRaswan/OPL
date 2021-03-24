@@ -1,6 +1,6 @@
 <!-- <div class="card border-left-primary shadow h-100 py-0" > -->
 
-<div [className]="'shadow h-100 py-0 border-left-'+cardcolor">
+<div [className]="'shadow h-100 border-left-'+cardcolor">
   <!-- <div class="shadow h-100 py-0"> -->
     <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
       <h5 class="m-0 pb-0 font-weight-bold text-gray-800">
@@ -13,7 +13,7 @@
     </div>
     <div class="card-body">
       <div class="row-auto py-0" *ngFor="let sub_category of category.sub_categories">
-        <div class="col-auto d-flex justify-content-between" >
+        <div class="col-auto d-flex justify-content-between " >
           <span> <p><a [routerLink]="['/lessonlist']" [queryParams]="{sub_category_id: sub_category.id,  category_id: category.id}">{{sub_category.name}}</a></p> </span> <span> </span> <span>&nbsp;{{sub_category.count}}&nbsp;</span>
         </div>
       </div>

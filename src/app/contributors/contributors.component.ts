@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Contributor } from '../category';
-import { SidebarlinkService } from '../sidebarlink.service';
+import { Contributor } from '../models/allmodels';
+import { BackendapiService } from '../services/backendapi.service';
 
 @Component({
   selector: 'app-contributors',
@@ -12,7 +12,7 @@ export class ContributorsComponent implements OnInit {
   contributors: Contributor[];
   private observable_contributors: any = null;
 
-  constructor(private sidebarlinkService: SidebarlinkService) { }
+  constructor(private sidebarlinkService: BackendapiService) { }
 
   ngOnInit(): void {
      this.getContributors();

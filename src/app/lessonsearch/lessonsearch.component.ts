@@ -1,18 +1,10 @@
-import { Component,
-          OnInit,
-          OnDestroy,
-          ViewChild,
-          ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 
 import { Subject } from 'rxjs';
-// import { debounceTime, distinctUntilChanged, switchMap
-//  } from 'rxjs/operators';
 import { DataexchangeService } from '../services/dataexchange.service';
-
-import { liveSearch } from '../live-search.operator';
-
-import { Category, SubCategory, Lesson } from '../category';
-import { SidebarlinkService } from '../sidebarlink.service';
+import { liveSearch } from '../services/live-search.operator';
+// import { Category, SubCategory, Lesson } from '../models/allmodels';
+import { BackendapiService } from '../services/backendapi.service';
 
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
@@ -27,6 +19,8 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
   @ViewChild('searchBox') searchBox;
   // lessons$: Observable<Lesson[]>;
   private searchTermSubject = new Subject<string>();
+  private observable_param: any = null;
+  private term: string = "";
 
   readonly lessons$ = this.searchTermSubject.pipe(
     liveSearch((term: string) => this.sidebarLinkService.searchLessons(term))
@@ -36,7 +30,7 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
   // private selectedLesson: Lesson;
 
   constructor(
-    private sidebarLinkService: SidebarlinkService,
+    private sidebarLinkService: BackendapiService,
     private router: Router,
     private route: ActivatedRoute,
     private dataExchangeService: DataexchangeService) {
@@ -46,6 +40,10 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
           this.searchByURL();
         }
       });
+      
+      // start with empty search to show all lessons
+      this.search("python"); //not working, why ???
+
     }
 
   // fire this if a term is supplied
@@ -60,18 +58,29 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
      this.searchTermSubject.next(term);
    }
 
-   searchByURL(): void {
-     const term = this.route.snapshot.paramMap.get('term');
-     if(term != null && term !== "") {
-       this.searchBox.nativeElement.value = decodeURIComponent(term)
-       this.search(term)
-     }
-   }
+  searchByURL(): void {
+    // const term = this.route.snapshot.paramMap.get('term');
+    this.observable_param = this.route.queryParams.subscribe(params => {
+      this.term = (params['term']==null?"":params['term']);
+    });
+    //  if(term != null && term !== "") {
+    this.searchBox.nativeElement.value = decodeURIComponent(this.term)
+    this.search(this.term)
+    //  }
+  }
 
 
   ngOnInit(): void {
+    // this.navigationSubscription = this.router.events.subscribe((e: any) => {
+    //   // If it is a NavigationEnd event re-initalise the component
+    //   if (e instanceof NavigationEnd) {
+    //     this.searchByURL();
+    //   }
+    // });
 
-    this.dataExchangeService.searchQuerySourceObjservable.subscribe(search_term => this.searchTermSubject.next(search_term));
+
+    // // get search term from dateExchangeService and push it on searchTermSubject
+    // this.dataExchangeService.searchQuerySourceObjservable.subscribe(search_term => this.searchTermSubject.next(search_term));
 
     // this.lessons$ = this.searchTerms.pipe(
     //   // wait 300ms after each keystroke before considering the term
@@ -91,6 +100,8 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
       if (this.navigationSubscription) {
          this.navigationSubscription.unsubscribe();
       }
+      if (this.observable_param != null)
+        this.observable_param.unsubscribe();
       // this.sidebarLinkService.selectedLesson = this.selectedLesson;
     }
 

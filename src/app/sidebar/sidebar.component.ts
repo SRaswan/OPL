@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SidebarLink } from '../sidebarlink';
-import { SidebarlinkService } from '../sidebarlink.service';
-import { SidebarMenu } from '../sidebarmenu';
+import { BackendapiService } from '../services/backendapi.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,13 +8,9 @@ import { SidebarMenu } from '../sidebarmenu';
 })
 export class SidebarComponent implements OnInit {
 
-	// sidebarlinks: SidebarLink[];
-//	subsidebarlink: SubsidebarLink[];
 	Menu: String;
-//	Name: SidebarLink["name"];
 
 	private _menu = '';
-//	private _name = 'name';
 
 	@Input()
 		set menu(menu: string) {
@@ -24,14 +18,11 @@ export class SidebarComponent implements OnInit {
 	}
 
 	get menu(): string { return this._menu; }
-//get name(): string { return this._name }
 
-	constructor(private sidebarlinkService: SidebarlinkService) {
+	constructor(private sidebarlinkService: BackendapiService) {
 	}
 
 	ngOnInit() {
-		// this.sidebarlinks = this.sidebarlinkService.getLinks(this.menu);
-//		this.subsidebarlink = this.sidebarlinkService.getSublinks(this.name);
 	}
 
 }

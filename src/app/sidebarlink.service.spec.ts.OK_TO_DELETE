@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SidebarlinkService } from './sidebarlink.service';
+import { SidebarlinkService } from './sidebarlink.service.ts.OK_TO_DELETE';
 
 describe('SidebarlinkService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

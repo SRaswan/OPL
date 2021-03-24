@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SidebarLink } from '../sidebarlink';
-import { SidebarMenu } from '../sidebarmenu'
-import { SidebarlinkService } from '../sidebarlink.service'
+import { SidebarLink } from '../sidebarlink.ts.OK_TO_DELETE';
+import { SidebarMenu } from '../sidebarmenu.ts.OK_TO_DELETE'
+import { SidebarlinkService } from '../sidebarlink.service.ts.OK_TO_DELETE'
 
 @Component({
   selector: 'app-header',

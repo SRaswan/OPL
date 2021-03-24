@@ -8,14 +8,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 // import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { MusicComponent } from './music/music.component';
-import { ComsciComponent } from './comsci/comsci.component';
-import { ScienceComponent } from './science/science.component';
-import { MathComponent } from './math/math.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { TrumpetComponent } from './musiccomponents/trumpet/trumpet.component';
-import { ArticleComponent } from './article/article.component';
-import { SearchComponent } from './search/search.component';
+// import { ArticleComponent } from './article/article.component';
+// import { SearchComponent } from './search/search.component';
 import { StarthereComponent } from './starthere/starthere.component';
 import { LessonlistComponent } from './lessonlist/lessonlist.component';
 import { LessonsearchComponent } from './lessonsearch/lessonsearch.component';
@@ -31,17 +26,11 @@ import { ProfileComponent } from './profile/profile.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    // HeaderComponent,
     FooterComponent,
     StarthereComponent,
-    MusicComponent,
-    ComsciComponent,
-    ScienceComponent,
-    MathComponent,
     SidebarComponent,
-    TrumpetComponent,
-    ArticleComponent,
-    SearchComponent,
+    // ArticleComponent,
+    // SearchComponent,
     LessonlistComponent,
     LessonsearchComponent,
     CategorylistComponent,

@@ -14,5 +14,5 @@
   "include": [
     "**/*.spec.ts",
     "**/*.d.ts"
-  ]
+, "app/article.service.spec.ts.OK_TO_DELETE", "app/sidebarlink.service.spec.ts.OK_TO_DELETE"  ]
 }

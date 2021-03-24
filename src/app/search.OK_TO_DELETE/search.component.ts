@@ -5,8 +5,8 @@ import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
 
-import { ArticleData } from '../articleData'
-import { ArticleService } from '../article.service'
+import { ArticleData } from '../articleData.ts.OK_TO_DELETE'
+import { ArticleService } from '../article.service.ts.OK_TO_DELETE'
 
 
 @Component({
