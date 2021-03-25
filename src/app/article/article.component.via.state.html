@@ -1,0 +1,88 @@
+<div class="px-5 pt-2 pb-5 page-cover"></div>
+<div class="px-5 pt-2 pb-5 page-cover"></div>
+<div class="container-fluid" *ngIf="{data: state$ | async} as state">
+
+	<div *ngIf="state.data.lesson">
+		<div class="home row">
+			<div class="col pt-3 pb-0 mb-0">
+				<h5><a routerLink="/categorylist">{{state.data.lesson.category[0].name}}</a> &gt; {{state.data.lesson.sub_category[0].name}} &gt;</h5>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col pt-0">
+				<h2 class="text-gray-900">{{state.data.lesson.name}}</h2>
+			</div>
+		</div>
+		<div class="row m-2" >
+		    <div class="col-lg-8 px-0">
+					<div class="ml-0 embed-responsive embed-responsive-16by9">
+						<youtube-player
+						  videoId={{state.data.lesson.youtube_url}}
+						  suggestedQuality="highres"
+							*ngIf="state.data.lesson.youtube_url"
+							(ready)="onReady($event)"
+	            		(stateChange)="onStateChange($event)"
+						 >
+						</youtube-player>
+					</div>
+				</div>
+				<div class="col-lg-4 mt-2" >
+					<p class="text-gray-800">{{state.data.lesson.description}}</p>
+					<p class="card-text my-0 py-0"><small class="text-muted">Author: {{state.data.lesson.author_name}}</small></p>
+					<p class="card-text my-0 py-0"><small class="text-muted">Last Published: {{state.data.lesson.published_timestamp*1000 | date}}</small></p>
+		    </div>
+				<!-- <iframe width="420" height="345" src="https://www.youtube.com/embed/kOHB85vDuow" webkitallowfullscreen mozallowfullscreen
+				allowfullscreen> </iframe> -->
+		</div>
+		<!-- <div class="row my-4 justify-content-between">
+			<div class="col-auto mx-0">
+				<button type="button" class="btn btn-primary"> 	<h2 class="m-0"> &larr; </h2></button>
+			</div>
+			<div class="col-auto offset-md-11">
+				<button type="button" class="btn btn-primary"> 	<h2 class="m-0"> &rarr; </h2></button>
+			</div>
+		</div> -->
+	</div>
+		<!-- <p>{{state.data.navigationId}}</p> -->
+</div>
+
+
+<!-- <div class="card mb-3" >
+	<div class="home row">
+		<div class="col m-2">
+			<h2>{{articledata.title}}</h2>
+		</div>
+	</div>
+	<div class="row m-2" >
+		    <div class="col-6">
+					<div class="ml-30 embed-responsive embed-responsive-16by9">
+						<youtube-player
+						  videoId={{youtubevideoid}}
+						  suggestedQuality="highres"
+							*ngIf="youtubevideoid"
+							(ready)="onReady($event)"
+	            		(stateChange)="onStateChange($event)"
+						 >
+						</youtube-player>
+					</div>
+				</div>
+				<div class="col-6" >
+		        <p>{{articledata.about}} </p>
+		        <a href="{{articledata.videoURL}}">Youtube Link:{{articledata.videoURL}}</a>
+						<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+		    </div>
+	</div>
+</div> -->
+<!-- <div class="card mb-3">
+	<div class="row">
+		<div class="col m-2">
+			<pre>{{ state$ | async | json }}</pre>
+			<h4>Reference</h4>
+			<ul>
+				<li><a href="https://efficientuser.com/2020/03/09/angular-9-youtuber-player-component/">Youtube Player Component</a></li>
+				<li><a href="https://golb.hplar.ch/2020/04/google-maps-youtube.html">YouTube Player and Google Maps Angular component</a></li>
+			</ul>
+      <p class="card-text"><a href="https://efficientuser.com/2020/03/09/angular-9-youtuber-player-component/">Youtube Player Component</a></p>
+		</div>
+	</div>
+</div> -->

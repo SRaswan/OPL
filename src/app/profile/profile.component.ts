@@ -20,9 +20,9 @@ export class ProfileComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-      this.observable_param = this.route.queryParams.subscribe(params => {
-          this.user_id = params['user_id'];
-      });
+      // this.observable_param = this.route.queryParams.subscribe(params => {
+      //     this.user_id = params['user_id'];
+      // });
       this.user_id = this.route.snapshot.paramMap.get('id');
       this.getProfile(this.user_id);
       this.getLessons(this.user_id);

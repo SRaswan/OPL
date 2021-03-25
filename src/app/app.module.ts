@@ -21,6 +21,9 @@ import { CategorycardComponent } from './categorycard/categorycard.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ContributorsComponent } from './contributors/contributors.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LessoncardComponent } from './lessoncard/lessoncard.component';
+
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { ProfileComponent } from './profile/profile.component';
     CategorycardComponent,
     PrivacyComponent,
     ContributorsComponent,
-    ProfileComponent
+    ProfileComponent,
+    LessoncardComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,7 @@ import { ProfileComponent } from './profile/profile.component';
   // exports: [
   //   ArticleComponent
   // ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

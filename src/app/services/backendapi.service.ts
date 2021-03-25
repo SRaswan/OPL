@@ -15,7 +15,8 @@ const httpOptions = {
 })
 export class BackendapiService {
   private categoryUrl = environment.base_api_server+'/opl/dynamic/categories';  // URL to web api
-  private lessonUrl = environment.base_api_server+'/opl/dynamic/lessons';  // URL to web api
+  private lessonsUrl = environment.base_api_server+'/opl/dynamic/lessons';  // URL to web api
+  // private lessonUrl = environment.base_api_server+'/opl/dynamic/lessons/';  // URL to web api
   private lessonsearchUrl = environment.base_api_server+'/opl/dynamic/searchlessons?query=';  // URL to web api
   private currentuserUrl = environment.base_api_server+'/opl/dynamic/current_user';  // URL to web api
   private profileUrl = environment.base_api_server+'/opl/dynamic/contributor/';
@@ -45,7 +46,7 @@ export class BackendapiService {
   }
 
   public getTopLessons(): Observable<Lesson[]> {
-    return this.http.get<Lesson[]>(this.lessonUrl)
+    return this.http.get<Lesson[]>(this.lessonsUrl)
       .pipe(
         map(resp => resp.length>0 ? resp : null)
         ,tap(resp => this.log('fetched top lessons.'))
@@ -55,7 +56,7 @@ export class BackendapiService {
 
   public getLessons(category_id: string, sub_category_id: string): Observable<Lesson[]> {
      // return this.http.get<Lesson[]>(this.lessonUrl+"?category="+category_id+"&sub_category="+sub_category_id);
-     let lessonsURL:string = this.lessonUrl+"?category="+category_id+"&sub_category="+sub_category_id
+     let lessonsURL:string = this.lessonsUrl+"?category="+category_id+"&sub_category="+sub_category_id
      return this.http.get<Lesson[]>(lessonsURL)
       .pipe(
          map(resp => resp.length>0 ? resp : null)
@@ -63,19 +64,26 @@ export class BackendapiService {
          ,catchError(this.handleError<Lesson[]>('get Lessons caught error'))
       );
 
- }
- public getLessonsByUser(user_id: string): Observable<Lesson[]> {
-    // return this.http.get<Lesson[]>(this.lessonUrl+"?category="+category_id+"&sub_category="+sub_category_id);
-    let lessonsURL:string = this.lessonUrl+"?user_id="+user_id
+  }
+  public getLessonsByUser(user_id: string): Observable<Lesson[]> {
+    let lessonsURL:string = this.lessonsUrl+"?user_id="+user_id
     return this.http.get<Lesson[]>(lessonsURL)
      .pipe(
         map(resp => resp.length>0 ? resp : null)
         ,tap(resp => this.log("fetched lessons of the user_id="+user_id))
         ,catchError(this.handleError<Lesson[]>('get lessons by user caught error'))
      );
+  }
 
-}
-
+  public getLesson(lesson_id: string): Observable<Lesson> {
+    let lesson_url:string = this.lessonsUrl + "/" + lesson_id;
+    return this.http.get<Lesson>(lesson_url)
+    .pipe(
+      map(resp => resp)
+      ,tap(resp => this.log('fetched Lesson.'))
+      ,catchError(this.handleError<Lesson>('get Lesson caught error'))
+    );
+  }
 
   public searchLessons(term: string = ""): Observable<Lesson[]> {
     return this.http.get<Lesson[]>(this.lessonsearchUrl+encodeURIComponent(term))

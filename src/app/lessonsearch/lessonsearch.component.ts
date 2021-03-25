@@ -22,6 +22,7 @@ export class LessonsearchComponent implements OnInit, OnDestroy{
   private observable_param: any = null;
   private term: string = "";
 
+  // this is observable that gets lessons from backend service
   readonly lessons$ = this.searchTermSubject.pipe(
     liveSearch((term: string) => this.sidebarLinkService.searchLessons(term))
   );

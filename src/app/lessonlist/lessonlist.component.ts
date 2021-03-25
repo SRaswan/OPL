@@ -32,6 +32,7 @@ export class LessonlistComponent implements OnInit {
                   public router: Router) { }
 
   ngOnInit() {
+     // subscribe to query parameters
       this.observable_param = this.route.queryParams.subscribe(params => {
           this.sub_category_id = params['sub_category_id'];
           this.category_id = params['category_id'];

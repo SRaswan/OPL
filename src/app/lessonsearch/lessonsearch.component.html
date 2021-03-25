@@ -1,6 +1,10 @@
 <div class="px-5 pt-2 pb-5 page-cover"></div>
 <div class="container-fluid">
-
+	<!-- <div class="px-5 pt-2 pb-5 page-cover">
+		<a routerLink="/starthere"> <img src="../assets/img/LogoOPL.png" width="40" height="40" class="js-scroll-trigger" alt="OPL"> </a>
+		&nbsp;&nbsp;
+		<a class="" routerLink="/starthere"><i class="fas fa-backspace"></i> ... let's go back to OPL</a>                    
+	</div> -->
 	<div class="d-sm-flex align-items-center justify-content-between pt-3">
 		<h3 class="text-gray-900">Search</h3>
 	</div>
@@ -21,40 +25,36 @@
 
 	<!-- Content Row & lesson loop-->
 	<div class="row mb-0" *ngFor="let lesson of lessons$ | async">
-	<!-- <div class="col-xl-3 col-md-6 mb-4"> -->
-	<div class="col-xl-12">
-		<div class="card border-left-primary h-100 py-2">
+        <app-lessoncard [lesson]="lesson"></app-lessoncard>
+		<!-- <div class="col-xl-12">
+			<div class="card border-left-primary h-100 py-2">
 
-			<!-- lesson card -->
-			<div class="card-body py-1">
-			<div class="row justify-content-start">
-			<div class="col-auto p-1 m-0">
-				<img src="https://img.youtube.com/vi/{{lesson.youtube_url}}/maxresdefault.jpg" alt="Loading..." width="192" height="108">
-			</div>
-			<div class="col-9 p-1 m-0 ml-1" >
-				<div class="row">
-					<div class="col-auto px-2 py-0 m-0">
-						<h5><a [routerLink]="['/article', lesson.id]" [state]="{lesson: lesson}">{{lesson.name}}</a></h5>
+				<div class="card-body py-1">
+				<div class="row justify-content-start">
+				<div class="col-auto p-1 m-0">
+					<img src="https://img.youtube.com/vi/{{lesson.youtube_url}}/maxresdefault.jpg" alt="Loading..." width="192" height="108">
+				</div>
+				<div class="col-9 p-1 m-0 ml-1" >
+					<div class="row">
+						<div class="col-auto px-2 py-0 m-0">
+							<h5><a [routerLink]="['/article', lesson.id]" [state]="{lesson: lesson}">{{lesson.name}}</a></h5>
+						</div>
+						<div class="col-auto px-2 py-0 m-0 text-muted">
+							<p>{{lesson.author_name}} </p>
+						</div>
+						<div class="col-auto px-2 py-0 m-0 text-muted">
+							<p>{{lesson.published_timestamp*1000 | date }}</p>
+						</div>
 					</div>
-					<div class="col-auto px-2 py-0 m-0 text-muted">
-						<p>{{lesson.author_name}} </p>
-					</div>
-					<div class="col-auto px-2 py-0 m-0 text-muted">
-						<p>{{lesson.published_timestamp*1000 | date }}</p>
+					<div class="row">
+						<div class="col-12 px-2 py-0 m-0">
+							<p class="text-gray-800">{{lesson.description}} </p>
+						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-12 px-2 py-0 m-0">
-						<p class="text-gray-800">{{lesson.description}} </p>
-					</div>
 				</div>
 			</div>
 			</div>
-		</div>
-			<!-- lesson card : END -->
-		</div>
+		</div> -->
 	</div>
-	</div>
-	<!-- Content Row & lesson loop: END -->
-
 </div>
