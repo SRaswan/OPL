@@ -24,7 +24,7 @@ const routes: Routes = [
 	// { path: 'categorylist', component: CategorylistComponent},
 	// { path: 'privacy', component: PrivacyComponent},
 	// { path: 'contributors', component: ContributorsComponent},
-	{ path: 'profile/:id', component: ProfileComponent}
+	{ path: 'profile/:user_handle', component: ProfileComponent}
 	];
 
 @NgModule({

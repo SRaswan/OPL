@@ -19,7 +19,7 @@
                     </a>
 
                     <div class="pt-lg-4">
-                        <h5 routerLink="/profile" class="font-weight-bold text-gray-900"><a [routerLink]="['/profile', contributor.id]">{{contributor.name}}</a></h5>
+                        <h5 routerLink="/profile" class="font-weight-bold text-gray-900"><a [routerLink]="['/profile', contributor.user_handle]">{{contributor.name}}</a></h5>
                     </div>
                     <div class="pb-0 pt-0">
                         <a class="text-gray-900" href="mailto:{{contributor.email}}">{{contributor.email}}</a>

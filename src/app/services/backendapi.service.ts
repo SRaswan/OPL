@@ -64,13 +64,13 @@ export class BackendapiService {
          ,catchError(this.handleError<Lesson[]>('get Lessons caught error'))
       );
 
-  }
-  public getLessonsByUser(user_id: string): Observable<Lesson[]> {
-    let lessonsURL:string = this.lessonsUrl+"?user_id="+user_id
+  }s
+  public getLessonsByUser(user_handle: string): Observable<Lesson[]> {
+    let lessonsURL:string = this.lessonsUrl+"?user_handle="+user_handle
     return this.http.get<Lesson[]>(lessonsURL)
      .pipe(
         map(resp => resp.length>0 ? resp : null)
-        ,tap(resp => this.log("fetched lessons of the user_id="+user_id))
+        ,tap(resp => this.log("fetched lessons of the user_handle="+user_handle))
         ,catchError(this.handleError<Lesson[]>('get lessons by user caught error'))
      );
   }
@@ -106,8 +106,8 @@ export class BackendapiService {
 
  }
 
- public getProfile(user_id: string): Observable<Contributor> {
-    let profile_url:string = this.profileUrl + user_id;
+ public getProfile(user_handle: string): Observable<Contributor> {
+    let profile_url:string = this.profileUrl + user_handle;
     return this.http.get<Contributor>(profile_url)
      .pipe(
        map(resp => resp)

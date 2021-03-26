@@ -9,7 +9,7 @@ import { BackendapiService } from '../services/backendapi.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-    user_id: string;
+    user_handle: string;
     profile: Contributor;
     lessons: Lesson[];
     private observable_profile: any = null;
@@ -20,20 +20,17 @@ export class ProfileComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-      // this.observable_param = this.route.queryParams.subscribe(params => {
-      //     this.user_id = params['user_id'];
-      // });
-      this.user_id = this.route.snapshot.paramMap.get('id');
-      this.getProfile(this.user_id);
-      this.getLessons(this.user_id);
+      this.user_handle = this.route.snapshot.paramMap.get('user_handle');
+      this.getProfile(this.user_handle);
+      this.getLessons(this.user_handle);
   }
 
-  getProfile(user_id: string): void {
-    this.observable_profile = this.sidebarlinkService.getProfile(user_id)
+  getProfile(user_handle: string): void {
+    this.observable_profile = this.sidebarlinkService.getProfile(user_handle)
              .subscribe(profile => this.profile = profile);
   }
-  getLessons(user_id: string): void {
-     this.observable_lessons = this.sidebarlinkService.getLessonsByUser(user_id)
+  getLessons(user_handle: string): void {
+     this.observable_lessons = this.sidebarlinkService.getLessonsByUser(user_handle)
                .subscribe(lessons => this.lessons = lessons);
    }
 

@@ -58,6 +58,7 @@ export interface Contributor {
 	profile_pic: string;
 	lesson_count: number;
 	about_me: string;
+	user_handle: string;
 	skills: any;
 }
 

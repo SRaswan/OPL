@@ -24,7 +24,7 @@
 	</div>
 
 	<!-- Content Row & lesson loop-->
-	<div class="row mb-0" *ngFor="let lesson of lessons$ | async">
+	<div class="row-auto pt-3 mb-0" *ngFor="let lesson of lessons$ | async">
         <app-lessoncard [lesson]="lesson"></app-lessoncard>
 		<!-- <div class="col-xl-12">
 			<div class="card border-left-primary h-100 py-2">
