@@ -1,27 +1,12 @@
-<!-- https://www.npmjs.com/package/ngx-youtube-player -->
-
-<!-- Lesson: {{lesson_id}}
-Lesson: {{lesson.id}}
-Lesson: {{lesson.categories[0].name}}
-Lesson: {{lesson.sub_categories[0].name}} -->
-<!-- <div class="px-5 pt-2 pb-5 page-cover">
-	<a routerLink="/starthere"> <img src="../assets/img/LogoOPL.png" width="40" height="40" class="js-scroll-trigger" alt="OPL"> </a>
-	&nbsp;&nbsp;
-	<a class="" routerLink="/starthere"><i class="fas fa-backspace"></i> ... let's go back to OPL</a>                    
- </div> -->
+<!-- See implementaiton here: https://www.npmjs.com/package/ngx-youtube-player -->
  <div class="container-fluid">  
 	<div class="px-5 pt-2 pb-5 page-cover"></div>
 	<div class="home row">
 		<div class="col pt-3 pb-0 mb-0">
 			<h5>
-				<!-- <a routerLink="/categorylist"> -->
-					{{lesson.categories[0].name}}
-				<!-- </a>  -->
-				&gt; {{lesson.sub_categories[0].name}} &gt;</h5>
+				<a routerLink="/categorylist">	{{lesson.category[0].name}}</a> 
+				&gt; {{lesson.sub_category[0].name}} &gt;</h5>
 		</div>
-	</div>
-	<div class="row">
-		<youtube-player videoId="PRQCAL_RMVo"></youtube-player>
 	</div>
 	<div class="row">
 		<div class="col pt-0">
@@ -32,20 +17,17 @@ Lesson: {{lesson.sub_categories[0].name}} -->
 		<div class="col-lg-8 px-0">
 				<div class="ml-0 embed-responsive embed-responsive-16by9">
 					<youtube-player
-						videoId={{lesson.youtube_url}}
-						suggestedQuality="highres"
-						*ngIf="lesson.youtube_url"
-						(ready)="onReady($event)"
-					(stateChange)="onStateChange($event)"
-						>
-					</youtube-player>
+					[videoId]="lesson.youtube_url"
+					(ready)="savePlayer($event)"
+					(change)="onStateChange($event)"
+					></youtube-player>
 				</div>
 			</div>
 			<div class="col-lg-4 mt-2" >
 				<p class="text-gray-800">{{lesson.description}}</p>
 				<p class="card-text my-0 py-0"><small class="text-muted">Author: {{lesson.author_name}}</small></p>
-				<p class="card-text my-0 py-0"><small class="text-muted">Last Published: {{lesson.published_timestamp*1000}}</small></p> <!-- No pipe found with name 'date' -->
+				<p class="card-text my-0 py-0"><small class="text-muted">Last Published: {{lesson.published_timestamp*1000 | date}}</small></p> 
 		</div>
-	</div>
+	</div> 
 </div>
 

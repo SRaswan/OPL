@@ -4,7 +4,7 @@ import { Category, SubCategory, Lesson } from '../models/allmodels';
 import { BackendapiService } from '../services/backendapi.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { YouTubePlayer } from '@angular/youtube-player';
+// import { YouTubePlayer } from '@angular/youtube-player';
 
 @Component({
   selector: 'app-lessonlist',
@@ -15,7 +15,7 @@ export class LessonlistComponent implements OnInit {
    // categories: Category[];
    top_lessons: Lesson[];
    // lessons: Lesson[];
-   subcategories: SubCategory[];
+   // subcategories: SubCategory[];
 
    // store parameters to the page here
    sub_category_id: string;

@@ -5,7 +5,7 @@ export class SubCategory {
 
 	constructor(id:number, name:string, count:number) {
 		this.id = id;
-    this.name = name;
+    	this.name = name;
 		this.count = count;
 	}
 }
@@ -36,8 +36,8 @@ export interface Lesson {
 	git_url: string;
 	published_timestamp: number;
 	author_name: string;
-	categories: Category[];
-	sub_categories: SubCategory[];
+	category: Category[];
+	sub_category: SubCategory[];
 	//published_dttm: new Date(this.published_timestamp * 1000).toLocaleString();
 
 	// get_published_dttm(): string {

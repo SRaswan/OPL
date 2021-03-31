@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
-import { YouTubePlayerModule } from '@angular/youtube-player';
+import { NgxYoutubePlayerModule } from 'ngx-youtube-player';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -9,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 // import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-// import { ArticleComponent } from './article/article.component';
+import { ArticleComponent } from './article/article.component';
 // import { SearchComponent } from './search/search.component';
 import { StarthereComponent } from './starthere/starthere.component';
 import { LessonlistComponent } from './lessonlist/lessonlist.component';
@@ -32,7 +33,7 @@ import { DatePipe } from '@angular/common';
     FooterComponent,
     StarthereComponent,
     SidebarComponent,
-    // ArticleComponent,
+    ArticleComponent,
     // SearchComponent,
     LessonlistComponent,
     LessonsearchComponent,
@@ -49,7 +50,7 @@ import { DatePipe } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    YouTubePlayerModule
+    NgxYoutubePlayerModule.forRoot()
   ],
   // exports: [
   //   ArticleComponent
@@ -59,3 +60,5 @@ import { DatePipe } from '@angular/common';
 })
 export class AppModule { }
 // export class VideoModule {}
+
+platformBrowserDynamic().bootstrapModule(AppModule);

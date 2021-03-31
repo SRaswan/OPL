@@ -3,7 +3,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Category, SubCategory, Lesson } from '../models/allmodels';
 import { BackendapiService } from '../services/backendapi.service';
 
-import { YouTubePlayer } from '@angular/youtube-player';
+// import { YouTubePlayer } from '@angular/youtube-player';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   categories: Category[];
   top_lessons: Lesson[];
 
-  @ViewChild(YouTubePlayer) youtubePlayer: YouTubePlayer;
+  // @ViewChild(YouTubePlayer) youtubePlayer: YouTubePlayer;
 
 
   constructor(private sidebarlinkService: BackendapiService) { }
@@ -23,10 +23,10 @@ export class HomeComponent implements OnInit {
     this.getCategories();
     this.getTopLessons();
 
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    // var tag = document.createElement('script');
+    // tag.src = "https://www.youtube.com/iframe_api";
+    // var firstScriptTag = document.getElementsByTagName('script')[0];
+    // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
   }
@@ -41,13 +41,13 @@ export class HomeComponent implements OnInit {
               .subscribe(top_lessons => this.top_lessons = top_lessons);
   }
 
-  onReady(event: YT.PlayerEvent) {
-    event.target.playVideo();
-  }
+  // onReady(event: YT.PlayerEvent) {
+  //   event.target.playVideo();
+  // }
 
-  onStateChange(event: YT.OnStateChangeEvent) {
-     if (event.data === YT.PlayerState.CUED) {
-        event.target.playVideo();
-     }
-  }
+  // onStateChange(event: YT.OnStateChangeEvent) {
+  //    if (event.data === YT.PlayerState.CUED) {
+  //       event.target.playVideo();
+  //    }
+  // }
 }
