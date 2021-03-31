@@ -1,10 +1,11 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { YouTubePlayer } from '@angular/youtube-player';
+// import { YouTubePlayer } from '@angular/youtube-player';
+import {YouTubePlayerModule} from '@angular/youtube-player';
 import { Lesson } from '../models/allmodels';
 // import { Observable, Subject } from 'rxjs';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, NavigationEnd, Router, ParamMap, NavigationStart } from '@angular/router';
-import { map, catchError, filter } from 'rxjs/operators';
+// import { map, catchError, filter } from 'rxjs/operators';
 import { BackendapiService } from '../services/backendapi.service';
 
 @Component({
@@ -13,9 +14,9 @@ import { BackendapiService } from '../services/backendapi.service';
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
-    youtubevideoid: string;
-
-    @ViewChild(YouTubePlayer) youtubePlayer: YouTubePlayer;
+    apiLoaded:boolean = false;
+    // youtubevideoid: string;
+    // @ViewChild(YouTubePlayer) youtubePlayer: YouTubePlayer;
 
     // lesson_observe$: Observable<Lesson>;
     // navigationId: string;
@@ -24,7 +25,7 @@ export class ArticleComponent implements OnInit {
     state$: Observable<object>;
     // used by latest view
     lesson: Lesson = null;
-    lesson_id: string = '0';
+    // lesson_id: string = '0';
 
     private observable_lesson: any = null;
 
@@ -40,19 +41,29 @@ export class ArticleComponent implements OnInit {
       
       // used by older view
       // this.getLessonByState();
-      this.lesson_id = this.route.snapshot.paramMap.get('id');
+      // this.lesson_id = this.route.snapshot.paramMap.get('id');
 
       let lesson_id = this.route.snapshot.paramMap.get('id');
       this.getLesson(lesson_id);
 
-      var tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      if (!this.apiLoaded) {
+        // This code loads the IFrame Player API code asynchronously, according to the instructions at
+        // https://developers.google.com/youtube/iframe_api_reference#Getting_Started
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.body.appendChild(tag);
+        this.apiLoaded = true;
+      }
+
+      // var tag = document.createElement('script');
+      // tag.src = "https://www.youtube.com/iframe_api";
+      // var firstScriptTag = document.getElementsByTagName('script')[0];
+      // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
       // this is for testing only
   		// this.articledata = this.articleService.getData("dummy");
       // this.youtubevideoid = 'kOHB85vDuow'
+      
 
   	}
 
