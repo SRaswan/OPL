@@ -31,12 +31,13 @@
                     </ul>
                 </div>
                 <div class="px-4 pb-3 pt-0 mt-0">
-                    <h5 class="mb-1 font-weight-bold text-gray-900">About</h5>
+                    <h5 class="mb-1 font-weight-bold text-gray-900">About Me</h5>
                     <div class="p-3 rounded shadow-sm bg-light">
                         <p class="font-italic text-gray-800 mb-0">{{profile.about_me}}</p>
-                        <div class="row pt-2">
-                        <div class="col-auto" *ngFor="let skill of profile.skills;">
-                            <h4> <span class="badge badge-pill badge-primary">{{profile.skill}}</span> </h4>
+                        <br/>
+                        <div class="row pt-2"> <b>Skills &raquo;</b>  
+                        <div class="col-auto" *ngFor="let skill of profile.skills | keyvalue">
+                            <h4> <span class="badge badge-pill badge-primary">{{skill.key}}</span> </h4>
                         </div>
 
                         </div>

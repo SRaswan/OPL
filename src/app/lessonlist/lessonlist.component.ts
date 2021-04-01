@@ -18,8 +18,8 @@ export class LessonlistComponent implements OnInit {
    // subcategories: SubCategory[];
 
    // store parameters to the page here
-   sub_category_id: string;
-   category_id: string;
+   sub_category_id: string = null;
+   category_id: string = null;
 
    // store observable references here to unsubscribe in ngOnDestroy()
    private observable_param: any = null;
