@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid p-0">
     <div class="row p-0">
         <div class="col-md-12 mx-auto">
             <!-- Profile widget -->
@@ -35,7 +35,7 @@
                     <div class="p-3 rounded shadow-sm bg-light">
                         <p class="font-italic text-gray-800 mb-0">{{profile.about_me}}</p>
                         <br/>
-                        <div class="row pt-2"> <b>Skills &raquo;</b>  
+                        <div class="row pt-2">  
                         <div class="col-auto" *ngFor="let skill of profile.skills | keyvalue">
                             <h4> <span class="badge badge-pill badge-primary">{{skill.key}}</span> </h4>
                         </div>
@@ -43,10 +43,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-between mb-1">
+                <div class="px-4 pb-0 pt-0 mt-0 d-flex align-items-center justify-content-between mb-1">
                     <h5 class="mb-0 font-weight-bold text-gray-900">Recent lessons</h5>
                 </div>                
-                <div class="py-2 px-4">
+                <div class="py-2 px-3">
                     <div class="row px-0 mb-0 pt-0">
                         <div class="col-md-4 m-0 px-2 pb-2" *ngFor="let lesson of lessons;" >
                         <div class="card bg-dark text-white rounded" [routerLink]="['/article', lesson.id]" [state]="{lesson: lesson}">

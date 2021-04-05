@@ -10,7 +10,7 @@
         <div class="col-md-3 px-2" *ngFor="let contributor of contributors; let index = index;"> -->
             <div class="text-center card-box shadow border-white">
                 <div class="member-card rounded pt-1 px-1 mt-0 mb-0">
-                    <a [routerLink]="['/profile', contributor.id]" class="notification">
+                    <a routerLink="/profile" [routerLink]="['/profile', contributor.user_handle]" class="notification">
                         <span>
                             <div class="thumb-lg member-thumb mx-auto">
                             <img src="{{contributor.profile_pic}}" onerror="this.onerror=null; this.src='https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg'" class="rounded-circle img-thumbnail" width="200" height="200" alt="{{contributor.display_name}}">
